@@ -37,7 +37,7 @@ If everything is bold, nothing is bold. If everything is a button, nothing is pr
 
 ## Typography rules
 
-- One sans family unless brand doc says otherwise  
+- Use approved type tokens; one or multiple families can work when hierarchy and readability support the task
 - Limit to ~3 sizes on a screen (title, body, meta)  
 - Line length: avoid ultra-wide body text on desktop  
 - Buttons and links: verb + noun  
@@ -66,9 +66,8 @@ If everything is bold, nothing is bold. If everything is a button, nothing is pr
 
 ## Tie back to docs
 
-- Screen must appear in `docs/04`  
-- Primary action must serve a job in `docs/01`  
-- If layout needs a new screen, **stop** and update docs / product-design — do not invent quietly  
+- Screen and primary action must follow current product decisions, recorded in docs 01/04 or equivalent context.
+- If a new screen is needed, mark it Proposed and resolve its scope before committing it; continue independent layout work.
 
 ---
 

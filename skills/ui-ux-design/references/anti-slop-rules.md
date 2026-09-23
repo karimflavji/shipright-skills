@@ -10,24 +10,15 @@ Vibe-coding tools invent pretty, generic UI. These rules force craft back to **y
 
 **Tagline:** Context before generate. Product before pixels.
 
-## Hard bans (default)
+## Integrity requirements
 
-Unless `docs/04-frontend-spec.md` or `personal-taste/` explicitly allows them:
+Do not present fabricated research, testimonials, customers, metrics or capabilities as real. Label synthetic prototype fixtures. Do not hide material costs, permissions or consequences. Keep critical controls usable through supported input methods. Docs and personal taste cannot waive truthfulness or accessibility.
 
-1. **AI purple / pink neon gradients** and mesh blobs as the default brand look  
-2. **Generic purple SaaS** templates (same hero, same three equal feature cards, same fake dashboard chrome)  
-3. **Glassmorphism + heavy blur** on every surface  
-4. **Emoji as icons**  
-5. **Fake testimonials, logos, or avatars** presented as real  
-6. **Fake charts** with decorative data  
-7. **Div-based fake product UI** (empty task lists / terminals as decoration)  
-8. **Invented navigation** not listed in doc 04  
-9. **Generic admin dashboards** unrelated to PRD jobs  
-10. **Engagement theater** (confetti, 7-step delight, “Scroll to explore”) not in PRD  
-11. **Dark patterns** (hidden costs, sneaky opt-outs, fake timers)  
-12. **Hover-only critical actions**  
-13. **Centered-everything** as the only layout idea on product screens (bias when the job needs it)  
-14. **One font doing display + body** with no reason when brand needs character (app shells may stay system sans — say why)
+Do not add unapproved navigation or features merely to satisfy a checklist. Apply the shared operating contract for decision ownership and evidence.
+
+## Visual heuristics
+
+Purple palettes, gradients, cards, blur, symmetry, emoji, a single font and motion are not automatic failures. Evaluate product purpose, brand fit, content hierarchy, accessible interaction and actual use. Prefer approved tokens/components. Explain a concrete problem before recommending a visual change. Numerical dials are optional aids, not proof of quality.
 
 ## Prefer instead
 
@@ -52,22 +43,22 @@ Match seriousness to the product in the PRD:
 | Consumer social | Dense enterprise table overload without need |
 | Internal tools | Marketing landing chrome inside the app shell |
 
-If unsure, stay **neutral and clear** — not “AI trendy.” Set dials low-mid for trust-first products.
+If direction is unresolved, start neutral and clear. Preserve approved brand choices; use dials only when useful.
 
 ## Pre-generate lock (actionable)
 
 Before calling Figma AI / Stitch / Claude Design / Cursor UI generate:
 
-- [ ] Doc 04 screen list locked  
-- [ ] One-line design read + VARIANCE / MOTION / DENSITY stated  
+- [ ] Current screen scope identified from doc 04 or equivalent context; proposals distinguished from approvals
+- [ ] One-line design read; optional dials if useful
 - [ ] Tokens / brand pointed to  
-- [ ] Anti-slop bans acknowledged in the prompt  
+- [ ] Integrity requirements and relevant visual rationale stated in the prompt
 - [ ] State requirements listed in the prompt  
-- [ ] **10-gate pre-flight** in the skill marked Pass/Fail  
+- [ ] **10-gate pre-flight** in the skill uses Pass, Fail, Not verified or justified Not applicable with evidence
 
 Example prompt fragment:
 
-> Follow docs/04. Design read: [one line]. Dials: V=/M=/D=. Screens only: [list]. No purple SaaS gradients, no emoji icons, no invented nav. Include empty, loading, error, success, denied. Primary CTA: [verb + object].
+> Follow current screen decisions in docs/04 or equivalent context. Design read: [one line]. Screens only: [list]. Use the approved brand, accessible controls and no unapproved navigation. Include the applicable states from the product specification. Primary CTA: [verb + object]. Add dials only if they clarify direction.
 
 ## After generate
 
