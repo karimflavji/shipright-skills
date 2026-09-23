@@ -1,89 +1,36 @@
-# Demo: Sample SaaS onboarding (invite teammate)
+# Teaching example: invite a teammate
 
 **Pack:** ShipRight  
-**Status: DRAFT — teaching sample only — not a real product.**  
+**Status: DRAFT; fictional Acme Team.**
 **Tagline:** Context before generate. Product before pixels.
 
-## What this demo proves
+## What is actually supplied
 
-Same job (**invite a teammate**). Two paths:
+- `filled-01-prd-excerpt.md`: fictional product context, including unresolved expiry and delivery questions.
+- `sample-skill-outputs.md`: an inline written specification and illustrative evaluations of it.
 
-| Path | What happens | Result |
-|------|--------------|--------|
-| **A — Empty vibe-code** | “Build me a members dashboard” with no docs | Generic purple SaaS, invented nav, happy-path only |
-| **B — ShipRight** | Fill docs → light intake → product-design → ui-ux-design → ux-critique | Scoped flow, real states, countable gates, ship-ready notes |
+There are no filled docs 02–05, screenshots, generated interfaces or running applications in this example. Do not assume attachments or passing runtime evidence. This is a teaching example, not a benchmark or an observed before/after comparison.
 
-## Before / after (short narrative)
+## What it teaches
 
-### Path A — Fail (empty vibe-code)
+1. Keep delegated and user-reserved decisions separate.
+2. Use the actual PRD excerpt and inline specification; do not imagine missing documents.
+3. Keep a required behavior Fail when it is missing, even if a ticket names an owner.
+4. Mark unavailable evidence Not verified and irrelevant features Not applicable.
+5. Give the next correction without claiming the whole product is ready to ship.
 
-You tell the agent: *“Build a SaaS members page with onboarding.”*
+The sample keeps the existing three skills and 8/10/10 check IDs. It does not require more process or add product features.
 
-Typical output:
+## Try it
 
-- Purple / pink gradient hero and glass cards  
-- Invented nav: Blog, Community, Pricing, Analytics widgets  
-- Fake chart: “Team productivity +128%”  
-- One happy layout — no empty, error, or permission-denied  
-- CTA says “Get started” (vague)  
-- Emoji sparkles as icons  
+> Use product-design with the PRD excerpt and inline specification in sample-skill-outputs.md. Identify current decisions, user-reserved choices and the next necessary behavior. Do not implement or send invitations.
 
-**Why it fails:** No locked context. The model invents a product. Pixels before product.
+> Use ui-ux-design on that written specification. Evaluate specification readiness using only supplied evidence. Do not add filters or new screens to satisfy a checklist.
 
-### Path B — Success (docs + skills)
+> Use ux-critique on specification v1 in sample-skill-outputs.md. Report the named review stage and readiness for builder handoff. A tracked issue is still unresolved; visual and runtime evidence are absent.
 
-1. Lock context with a PRD excerpt (and thin 02–04) — see `filled-01-prd-excerpt.md`  
-2. Light intake: 3–5 Qs or **you decide / let me decide**  
-3. **product-design** → happy/fail paths + state table → **8-check decision gate**  
-4. **ui-ux-design** → structure notes + dials → **10-gate pre-flight**  
-5. **ux-critique** → findings + **10-gate ship audit**  
-6. File tickets in doc 05 — **then** generate UI  
+These prompts are teaching aids that explain the expected method. They are not independent evaluation inputs. Focused behavioral tests use separate task-local prompts without the expected answer.
 
-**Why it works:** Context before generate. Product before pixels. Gates are Pass/Fail, not vibes.
+## Scope of proof
 
-## Files in this folder
-
-| File | Role |
-|------|------|
-| `README.md` | This guide — before/after + how to run |
-| `filled-01-prd-excerpt.md` | Short filled PRD excerpt |
-| `sample-skill-outputs.md` | Example outputs from all three skills + gates |
-
-## Suggested path through the pack
-
-1. Read `filled-01-prd-excerpt.md`  
-2. Skim `sample-skill-outputs.md` (see what “good” looks like)  
-3. Imagine thin docs 02–04: roles Owner/Member; screens Invite modal + Members list  
-4. Re-run the skills yourself with the prompts below  
-5. Compare any AI generate against Path A fails  
-
-## Sample prompts
-
-**Product-design**
-
-> Using product-design and this example PRD excerpt, shape the invite-teammate flow. Include happy path, fail path, and states: empty members, invite loading, invite error, permission denied for members. Run the 8-check decision gate. Do not invent features outside the PRD.
-
-**UI/UX-design**
-
-> Using ui-ux-design, spec the Members empty state and Invite form. Design read + dials. No gradients, no invented nav. Primary CTA: Invite teammate. Run the 10-gate pre-flight.
-
-**UX-critique**
-
-> Critique this generated Members page for slop tells and missing states. Run the 10-gate ship audit. No fake user quotes.
-
-## What “good” looks like (checklist)
-
-- [ ] Scope stays at invite + members list — no random dashboard widgets  
-- [ ] Denied and error states are explicit  
-- [ ] Empty ≠ filtered empty  
-- [ ] CTA language matches the job (“Invite teammate”)  
-- [ ] Decision gate / pre-flight / ship audit filled Pass or Fail  
-- [ ] No purple SaaS / emoji-icons / fake metrics  
-
-## Compare to UI-only packs
-
-Taste / Hallmark / Pro Max can make Path A *prettier*. ShipRight still requires Path B’s **docs + product decisions** so prettier UI is the *right product*.
-
----
-
-*DRAFT — examples/sample-saas-onboarding — ShipRight*
+A written example can demonstrate the intended rules. It does not establish better output than another skill, runtime accessibility, email delivery, authorization enforcement or client installation reliability. Those require their own evidence.

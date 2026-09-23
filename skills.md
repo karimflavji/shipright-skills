@@ -1,25 +1,23 @@
 # Skills catalog — ShipRight
 
-**Status: DRAFT — not published.**  
+**Status: Public draft; this change set is unreleased.**
 **Tagline:** Context before generate. Product before pixels.
 
 ## How to choose a skill
 
-1. If context docs are empty → fill `docs/01`–`05` first (templates are the skill before the skills).
-2. If context is partial → run **light intake** (3–5 questions with examples + **you decide / let me decide**). See `skills/_shared/intake.md`.
+1. Read current instructions and relevant project context. Help draft missing sections; block only commitments that depend on unresolved facts or decisions.
+2. If context is partial → run **light intake** (0–5 questions when needed with examples + separate **you decide** and **let me decide** choices). See `skills/_shared/intake.md`.
 3. If you need **what the product should do** → `product-design` (ends with **8-check decision gate**)
 4. If you need **how screens should look and behave** → `ui-ux-design` (dials + **10-gate pre-flight**; load `personal-taste/` if present)
-5. If you need a **review of an existing mock or generate** → `ux-critique` (**10-gate ship audit**)
+5. If you need a **review of a specification, visual artifact or implementation** → `ux-critique` (**10-gate audit** for the named stage)
 6. Wrong decision found in critique → go back to `product-design`, not only visual polish
 
-## Intake pattern (all skills)
+## Shared rules (all skills)
 
-- **Max 3–5 questions** per run (or one shared intake for a multi-skill session).
-- Each question: short **examples** + **you decide / let me decide**.
-- If the user picks **you decide / let me decide**, the agent chooses from docs, labels `ASSUMPTION`, continues.
-- Finalize after answers — no endless questionnaires.
-- Shared write-up: `skills/_shared/intake.md`
-- Each `SKILL.md` has its own **INTAKE** section near the top (ux-critique stays shorter: what to critique + goal).
+Read `skills/_shared/intake.md` and `skills/_shared/operating-contract.md`.
+Ask only material unanswered questions, usually one and at most five per round; zero is valid. “You decide” delegates within scope. “Let me decide” reserves the choice. Blank answers are unresolved.
+
+Use Pass, Fail, Not verified and justified Not applicable, with artifact/version, stage and evidence. A ticket or owner does not resolve a failure. Apply the same readiness rule to every check; do not claim release readiness from a specification or screenshot.
 
 ## Catalog
 
@@ -27,21 +25,21 @@
 |-------|-----------|------|------------------|-------|
 | **product-design** | Shaping flows, states, action risk, confirm/undo, eng handoff | **8-check decision gate** | Pure pixel polish or color-only tasks | `skills/product-design/SKILL.md` |
 | **ui-ux-design** | Layout, dials, hierarchy, components, a11y, anti-slop against docs | **10-gate pre-flight** | Inventing product strategy or scope | `skills/ui-ux-design/SKILL.md` |
-| **ux-critique** | After a mock/generate, before ship; need findings + severity | **10-gate ship audit** | As a substitute for missing PRD/docs | `skills/ux-critique/SKILL.md` |
+| **ux-critique** | Review a specification, visual artifact or implementation with evidence | **10-gate ship audit** | When no reviewable artifact is supplied | `skills/ux-critique/SKILL.md` |
 
 ## Recommended workflow order
 
 ```text
-docs 01→05
-  → light intake (3–5 Qs, you decide / let me decide)
+relevant context (docs 01–05 as needed)
+  → light intake (0–5 Qs if needed, separate delegation/user choice)
   → product-design (+ 8-check decision gate)
   → ui-ux-design (+ dials + 10-gate pre-flight)
-  → ux-critique (+ 10-gate ship audit)
+  → ux-critique (+ specification audit)
   → update 05 tickets
-  → code / generate UI
+  → code / generate UI → critique actual result
 ```
 
-Never skip docs for big invents. Never invent product or UI when docs are missing — refuse and list gaps. Intake fills light gaps only.
+Do not invent facts or approved scope. Missing documents allow provisional help; unresolved consequential decisions block the affected commitment. Written plans and implemented behavior require different evidence.
 
 ## Example prompts
 
@@ -51,7 +49,7 @@ Never skip docs for big invents. Never invent product or UI when docs are missin
 
 ### B) UI/UX design
 
-> Using the ui-ux-design skill and docs/04, light intake then one-line design read + VARIANCE/MOTION/DENSITY. Produce structure notes for the onboarding checklist screen. Include empty, loading, error, success. Run the 10-gate pre-flight. No purple SaaS. Load personal-taste/ if present.
+> Using the ui-ux-design skill and docs/04, light intake then one-line design read + VARIANCE/MOTION/DENSITY. Produce structure notes for the onboarding checklist screen. Include empty, loading, error, success. Run the 10-gate pre-flight. Evaluate the approved brand on its merits. Load personal-taste/ if present.
 
 ### C) UX critique
 
@@ -61,9 +59,9 @@ Never skip docs for big invents. Never invent product or UI when docs are missin
 
 | Skill | Pack version |
 |-------|----------------|
-| product-design | 0.2.0-draft |
-| ui-ux-design | 0.2.0-draft |
-| ux-critique | 0.2.0-draft |
+| product-design | 0.2.1-draft + unreleased control/evidence fixes |
+| ui-ux-design | 0.2.1-draft + unreleased control/evidence fixes |
+| ux-critique | 0.2.1-draft + unreleased control/evidence fixes |
 
 ---
 

@@ -1,6 +1,6 @@
 # ShipRight
 
-**Status: Published on GitHub as shipright-skills.** Still not on GitHub. Do not commit/push until Altaz says so.
+**Status: Public draft.** Current local control/evidence fixes are unreleased; no new release is claimed.
 
 **Tagline:** Context before generate. Product before pixels.
 
@@ -8,9 +8,9 @@
 
 ## One-line pitch
 
-Stop AI from inventing random UI and flows. Lock product context in five docs, ask a few light questions, then run three skills — product decisions, UI craft, and critique — **before** you generate code or screens.
+Keep AI work grounded in product intent. Use the available context, resolve the decisions needed now, then apply product design, UI craft and honest critique. Five templates help record decisions; missing files do not prevent useful clarification or provisional drafting.
 
-**Anti-slop** is a capability (hard gates that block generic AI UI), not the product name.
+**Anti-slop** is a capability (evidence-based checks for unsupported scope, misleading content and weak UX), not the product name.
 
 ## Why this pack (gap vs UI-only skills)
 
@@ -25,7 +25,7 @@ UI-only packs polish screens. ShipRight forces **product before pixels**: jobs, 
 
 1. **Taste Skill** — brief inference, design dials, hard pre-flight, not purple SaaS  
 2. **UI UX Pro Max** — lean skills + deep references, Avoid lists, states, a11y  
-3. **Hallmark-style rigor** — countable Pass/Fail gates, named slop tells, honest fail
+3. **Hallmark-style rigor** — evidence-based checks, named slop tells, honest fail
 
 We paraphrase. We do not copy proprietary skill text.
 
@@ -49,50 +49,40 @@ We paraphrase. We do not copy proprietary skill text.
 | Product decisions | `skills/product-design/` | Flows, states, **decision gate** |
 | UI/UX craft | `skills/ui-ux-design/` | Dials + **10-gate pre-flight** + anti-slop |
 | Critique | `skills/ux-critique/` | **10-gate ship audit** + severity findings |
-| Shared intake | `skills/_shared/intake.md` | Light 3–5 questions (DRY) |
+| Shared intake | `skills/_shared/intake.md` | Light 0–5 questions when needed (DRY) |
+| Shared contract | `skills/_shared/operating-contract.md` | Decision ownership, evidence and readiness |
 | Personal taste | `personal-taste/` | Your `.skill` overlays later (do not block drafts) |
 | Catalog | `skills.md` | Which skill + prompts |
 | Map | `architecture.md` | How the pack is organized |
 | Agent rules | `AGENTS.md` | Do / don’t for agents |
-| Demo | `examples/sample-saas-onboarding/` | Before/after + filled docs + sample outputs |
+| Example | `examples/sample-saas-onboarding/` | Fictional PRD excerpt, inline specification and sample reviews |
 
-## Workflow (always this order)
+## Workflow
 
-```text
-┌─────────────────────────────────────────────────────────┐
-│  1. Fill docs 01 → 05     (context locked)              │
-│  2. Light intake 3–5 Qs   (you decide / let me decide)  │
-│  3. product-design        → decision gate               │
-│  4. ui-ux-design          → dials + 10-gate pre-flight  │
-│  5. ux-critique           → 10-gate ship audit          │
-│  6. Update docs/05 tickets                              │
-│  7. ONLY THEN → code / generate UI                      │
-└─────────────────────────────────────────────────────────┘
-         Context before generate. Product before pixels.
-```
+Use relevant project context, light intake if needed, product-design, ui-ux-design and specification critique before a decided build handoff. Update relevant tickets. Review the actual generated or implemented result before claiming its readiness. The three specialists and existing 8/10/10 checks remain; this update changes their evidence rules, not their responsibilities.
 
-If docs 01–05 are empty, every skill **refuses to invent**. Ask for gaps or point to `docs/`.
+Missing documents do not block clarification or a provisional draft. Do not invent facts, approved scope or capabilities. Block only commitments that depend on unresolved outcome, scope, access, cost or recovery. Templates full of UNKNOWN are not implementation readiness.
 
-## Countable gates (not vibes)
+## Quality checks
 
-| Skill | Gate | Count |
-|-------|------|-------|
-| **product-design** | Decision gate | **8** Pass/Fail checks |
-| **ui-ux-design** | Pre-flight | **10** Pass/Fail checks |
-| **ux-critique** | Ship audit | **10** Pass/Fail checks |
+| Skill | Existing checks | Readiness scope |
+| --- | --- | --- |
+| product-design | 8 | Product decision/handoff |
+| ui-ux-design | 10 | UI specification/pre-flight |
+| ux-critique | 10 | The named specification, visual artifact or implementation |
 
-Every check is honest **Pass** or **Fail** with a short note. Fail = fix or lower scope before ship.
+Use **Pass**, **Fail**, **Not verified**, or **Not applicable** with a reason and evidence. A ticket, owner or fix plan never turns a failure into Pass. A screenshot cannot prove keyboard behavior, persistence or release readiness. Apply [the shared operating contract](skills/_shared/operating-contract.md) across all checks.
 
-## Light intake (important)
+## Light intake and decision ownership
 
-Skills must **not** dump a huge questionnaire.
+Read existing context before asking. Zero questions is valid; ask only what changes the next decision, usually one and at most five per round. Do not repeat intake at each skill boundary.
 
-- Gather idea context in **only 3–5 questions** per skill run (or one shared intake).
-- Each question offers short **examples** and **you decide / let me decide**.
-- If you pick **you decide / let me decide**, the agent chooses from docs, labels `ASSUMPTION`, and continues.
-- After answers: finalize and work. See `skills/_shared/intake.md`.
+- **You decide** delegates only the named choice.
+- **Let me decide** leaves the choice with the user.
+- Blank or skipped answers stay unresolved; silence is not approval.
+- Latest explicit corrections supersede older product decisions within their scope. Preserve unrelated approvals.
 
-Refuse-to-invent still stands when docs are empty — intake fills light gaps when docs are partial, not a whole missing PRD.
+See [shared intake](skills/_shared/intake.md). Optional preferences cannot override truthfulness, accessibility or the user's action limits.
 
 ## Personal taste overlays (pending your files)
 
@@ -148,13 +138,13 @@ Exact paths can vary by tool version — treat as draft guidance until Altaz say
 
 **Suggested repo names (when publishing later):** `shipright` or `shipright-skills`.
 
-## Demo (proves the difference)
+## Teaching example (not a benchmark)
 
 See **`examples/sample-saas-onboarding/`**:
 
-- Empty vibe-code **fail** vs docs + skills **success** (short before/after)
+- A fictional invite specification with explicitly unresolved checks
 - Filled PRD excerpt
-- Sample skill outputs (product-design → ui-ux → critique)
+- Sample outputs showing evidence, limits and required follow-up; no generated UI is attached
 
 ## Three example prompts
 
@@ -162,19 +152,21 @@ See **`examples/sample-saas-onboarding/`**:
 > Use the product-design skill. Start with light intake (max 5 questions). Our filled docs are in docs/. Design the invite-teammate flow: happy path, fail path, and a state table. Run the 8-check decision gate. Do not invent features not in the PRD.
 
 **2 — Craft UI (ui-ux-design)**  
-> Use the ui-ux-design skill against docs/01–04. Light intake, then one-line design read + dials. Spec empty, loading, error, and success for the onboarding checklist. Run the 10-gate pre-flight. No purple SaaS. Load personal-taste/ if present.
+> Use the ui-ux-design skill against docs/01–04. Light intake, then one-line design read + dials. Spec empty, loading, error, and success for the onboarding checklist. Run the 10-gate pre-flight for this specification. Evaluate the approved visual direction on its merits. Load personal-taste/ if present.
 
 **3 — Critique before ship (ux-critique)**  
 > Use the ux-critique skill. Short intake: what to critique + goal. Run the 10-gate ship audit. List blockers, majors, and polish. Flag AI-slop tells. Suggest rewrite asks — do not invent fake user quotes.
 
 ## Boundaries
 
-- **Do not** invent product scope, roles, or screens when docs are empty  
+Follow the shared operating contract for decision authority and readiness.
+
+- **Do not** turn proposed scope, roles or screens into approved requirements
 - **Do not** claim user research was done unless sources are listed  
 - **Do not** use dark patterns (trick opt-outs, fake urgency, hidden costs)  
-- **Do** keep intake to 3–5 questions with examples + you decide / let me decide  
-- **Do** cover empty / loading / error / success / permission denied  
-- **Do** pass countable gates (or list fails) before ship  
+- **Do** ask only material unanswered questions and preserve who owns each choice
+- **Do** cover applicable empty / loading / error / success / permission-denied behavior
+- **Do** resolve critical failures and verify critical requirements before claiming readiness
 - **Do** write in simple, clear English  
 
 ## Version
@@ -184,12 +176,12 @@ See **`examples/sample-saas-onboarding/`**:
 
 ## Feedback / open items
 
-For Altaz / Sehar:
+For Altaz:
 
 - [x] Final product name locked: **ShipRight**  
 - [ ] Personal taste `.skill` files for `personal-taste/` when ready  
-- [ ] Publish to GitHub — **only when Altaz says yes**  
-- [ ] Commit — **only when Altaz says yes**  
+- [ ] Push or merge this unreleased change set — **only when Altaz says yes**
+- [ ] Commit this change set — **only when Altaz says yes**
 
 ---
 

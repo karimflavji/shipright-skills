@@ -1,7 +1,7 @@
 # AGENTS.md — Rules for AI working in this pack
 
 **Pack:** **ShipRight** (name locked)  
-**Status: DRAFT — not published.**  
+**Status: Public draft; this change set is unreleased.**
 **Tagline:** Context before generate. Product before pixels.
 
 These rules apply when an agent edits or uses this skill-pack repo. The reusable product is the content under `skills/` and `docs/`.
@@ -18,23 +18,24 @@ These rules apply when an agent edits or uses this skill-pack repo. The reusable
 | `README.md` | Install, pitch, gap vs UI-only, example prompts |
 | `architecture.md` | Folder ownership and loading order |
 | `skills.md` | Which skill to run |
-| `docs/01`–`05` | Before any product/UI generation |
-| `skills/_shared/intake.md` | Light 3–5 Q intake pattern |
+| `docs/01`–`05` | Relevant context for the current decision; equivalent project sources are valid |
+| `skills/_shared/intake.md` | Decision ownership and focused intake |
+| `skills/_shared/operating-contract.md` | Authority, evidence statuses and readiness |
 | `skills/*/SKILL.md` | When that skill activates |
 | `skills/*/references/` | Only as needed |
 | `personal-taste/` | Optional overlays when files exist (do not block drafts) |
-| `examples/` | Shape of good output + before/after demo |
+| `examples/` | Fictional specification and evidence-limited sample reviews |
 
 ## Hard rules — Do
 
-- [ ] Require filled (or explicitly partial) docs 01–05 before inventing product or UI
-- [ ] If docs are missing, **refuse**, list gaps, and point to `docs/`
-- [ ] Use **light intake** only: 3–5 questions max, with examples + **you decide / let me decide**
-- [ ] Follow workflow: docs → light intake → product-design → ui-ux-design → ux-critique → tickets → code
+- [ ] Use relevant existing context; help draft missing sections without inventing facts or approvals
+- [ ] Missing context blocks only the affected commitment; apply the shared operating contract
+- [ ] Use shared intake: zero questions is valid; distinguish delegation, reserved choice and unresolved answers
+- [ ] Follow workflow: context → light intake if needed → product-design → ui-ux-design → specification critique → tickets → code; review the actual result before release readiness
 - [ ] Run countable gates: product-design **8-check decision gate**, ui-ux-design **10-gate pre-flight**, ux-critique **10-gate ship audit**
-- [ ] Cover empty, loading, error, success, and permission-denied states for interactive flows
-- [ ] For ui-ux-design: one-line design read, set dials, run 10-gate pre-flight before ship
-- [ ] If `personal-taste/` has files, load and prefer those preferences over defaults (do not rewrite core skills)
+- [ ] Cover applicable states; use justified Not applicable rather than inventing behavior
+- [ ] For ui-ux-design: one-line design read, optional useful dials, stage-specific 10-check pre-flight
+- [ ] Personal taste can guide visual defaults, never override integrity requirements or approved project decisions
 - [ ] Keep each `SKILL.md` lean; put long tables and checklists in `references/`
 - [ ] Write simple, clear English (ESL-friendly). Short sentences. Define jargon in one line.
 - [ ] Mark invented assumptions as **ASSUMPTION** and prefer asking over guessing
@@ -43,13 +44,13 @@ These rules apply when an agent edits or uses this skill-pack repo. The reusable
 
 ## Hard rules — Don’t
 
-- [ ] Do not invent features, navigation, roles, or APIs not supported by docs
-- [ ] Do not dump huge questionnaires — intake stays 3–5 questions
+- [ ] Do not invent facts or treat proposed features, navigation, roles or APIs as approved
+- [ ] Do not dump huge questionnaires — intake stays 0–5 questions when needed
 - [ ] Do not claim research, interviews, or metrics without listed sources
 - [ ] Do not use dark patterns (sneaky opt-outs, fake scarcity, hidden fees)
 - [ ] Do not invent fake user quotes in critiques
 - [ ] Do not paste the same skill body into `.claude/`, `.cursor/`, and `.agents/` as separate sources of truth
-- [ ] Do not ship UI that relies on color alone, hover alone, or emoji-as-icons
+- [ ] Do not make critical controls rely on color or hover alone; judge icon meaning and accessible labels
 - [ ] Do not default to generic purple SaaS / mesh blob UI
 - [ ] Do not block draft work waiting for Altaz personal-taste files
 - [ ] Do not publish to GitHub or commit unless a human explicitly asks (this draft pack: **do not publish, do not commit**)
@@ -67,11 +68,11 @@ These rules apply when an agent edits or uses this skill-pack repo. The reusable
 
 1. Create `skills/<name>/` with `name` = folder name (lowercase, hyphens)
 2. Add `SKILL.md` with YAML frontmatter: `name`, `description` (what + when)
-3. Add an **INTAKE** section (3–5 Qs, examples + you decide / let me decide) near the top
-4. Add a **countable Pass/Fail gate** (not vibes)
+3. Reference shared intake near the top; do not duplicate contradictory choice rules
+4. Use the shared four-status evidence and readiness contract for relevant checks
 5. Add `references/` only for depth that would bloat the skill body
 6. Document When to Use / When NOT to Use
-7. Include refuse-to-invent gate tied to `docs/`
+7. Do not invent facts or approved scope; missing context blocks only affected commitments
 8. Update `skills.md` catalog table
 9. Add a CHANGELOG entry under the next version
 10. Optionally add a short example under `examples/`
@@ -80,26 +81,18 @@ These rules apply when an agent edits or uses this skill-pack repo. The reusable
 
 - [ ] Frontmatter valid: `name` matches folder; `description` has triggers
 - [ ] INTAKE section present and light
-- [ ] Countable Pass/Fail gate present and numbered
+- [ ] Relevant checks use the shared statuses, evidence and readiness rule
 - [ ] Relative links to `references/` and `docs/` work
 - [ ] Catalog (`skills.md`) updated
-- [ ] No stub files under ~20 lines except `LICENSE`
 - [ ] DRAFT status still clear until Altaz approves publish
-- [ ] Workflow order and refuse gate unchanged unless intentionally revised
+- [ ] Scope and decision ownership preserved; readiness does not authorize external actions
 - [ ] Branding says **ShipRight**, not “Anti-Slop Product Design Skill Pack” as the product title
 
-## Quality gate for generated product/UI work (using the skills)
+## Quality checks for generated product/UI work
 
-An agent using this pack to design a feature is **not done** until:
+Use `skills/_shared/operating-contract.md` as the common rule. State the reviewed artifact/version, stage, critical requirements and evidence limits. No critical failure can pass merely because an owner or ticket exists. Not verified is not Pass; Not applicable needs a reason. Keep the existing specialist checks proportionate to the requested task.
 
-1. Docs 01–05 exist or gaps are listed  
-2. Light intake done or skipped for good reason  
-3. Happy path + fail path + state table exist  
-4. product-design **8-check decision gate** passed (or fails listed)  
-5. Empty / loading / error / success addressed  
-6. ui-ux: dials stated + **10-gate pre-flight** passed  
-7. Anti-slop rules checked  
-8. ux-critique **10-gate ship audit** + findings with severity and rewrite asks  
+Preserve the user's product reasoning: owned outcome → differentiating system → objects/states → journey → screen jobs → honest critique → approved decisions. Do not introduce new workflows or personal-project details during a focused correction.
 
 ---
 

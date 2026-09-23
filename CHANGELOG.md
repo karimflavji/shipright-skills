@@ -4,10 +4,24 @@ All notable changes to this pack will be documented in this file.
 
 Format based on Keep a Changelog. Versioning follows SemVer.
 
-**Status:** DRAFT — not published to GitHub.  
+**Status:** Public draft; current control/evidence changes are unreleased. Historical publication notes below describe their time.
 **Product name:** **ShipRight** (locked).
 
-## [Unreleased] — rename-only (0.2.1-draft candidate)
+## [Unreleased] — decision ownership and review evidence
+
+### Changed
+
+- Separate delegated choices, user-reserved choices and unanswered questions; preserve latest scoped corrections.
+- Apply one shared evidence contract: Pass, Fail, Not verified and justified Not applicable, tied to review stage and artifact version.
+- Remove pass-by-ticket/owner/fix-plan rules and taste exceptions for fabricated proof or inaccessible critical controls.
+- Correct fictional examples and narrow claims to evidence actually supplied.
+- Keep the existing three specialists and 8/10/10 check IDs. No new workflow, dependency, installer or application implementation.
+
+### Validation
+
+- Targeted source checks and task-local behavioral trials are recorded with this change set. These do not certify client installation or production behavior.
+
+## [0.2.1-draft candidate] — historical rename-only
 
 ### Changed
 
@@ -83,5 +97,5 @@ Format based on Keep a Changelog. Versioning follows SemVer.
 
 ### Notes
 
-- Draft for Altaz / Sehar review. Pack name and Altaz’s existing Claude/Codex UX skill files still open.
+- Draft for Altaz review. Pack name and Altaz’s existing Claude/Codex UX skill files still open.
 - No GitHub publish until Altaz approves.

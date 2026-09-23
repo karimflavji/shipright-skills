@@ -7,7 +7,7 @@
 **Author:** Example for ShipRight pack  
 **Date:** 2026-09-20  
 
-> This is a **short excerpt** for teaching. A real project should fill the full `docs/01-prd.md` template plus docs 02–05.
+> This is a **short excerpt** for teaching. It is supplied context, not a complete implementation specification. Related documents are not supplied; use only the sections actually present.
 
 ---
 
@@ -87,7 +87,7 @@ Small team admins set up Acme Team alone, then need a coworker in the workspace.
 
 ## Ready for skills?
 
-This excerpt is enough to **demo** product-design + ui-ux-design. For production work, complete full docs 01–05 before generate.
+This excerpt supports a provisional specification discussion. Expiry, delivery and retry behavior remain unresolved. See the actual inline specification and honest readiness checks in `sample-skill-outputs.md`; no generated artifact or runtime verification is supplied.
 
 ---
 

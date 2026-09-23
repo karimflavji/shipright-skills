@@ -24,7 +24,7 @@
 
 ## Scope discipline
 
-- [ ] Every step maps to a PRD job or explicit non-goal  
+- [ ] Every step maps to an approved or explicitly provisional job; non-goals stay excluded
 - [ ] No “while we’re here” features  
 - [ ] No invented navigation destinations  
 - [ ] Assumptions labeled `ASSUMPTION`  
@@ -36,18 +36,19 @@
 - [ ] Error copy ownership noted (who writes final strings)  
 - [ ] Analytics events only if in docs — else UNKNOWN  
 - [ ] Tickets suggested for `docs/05`  
-- [ ] **8-check decision gate** filled Pass/Fail in the skill output  
+- [ ] **8-check decision gate** uses the shared four statuses with evidence and next action
 
 ## Severity for leftover issues
 
-When reviewing an existing decision set:
+Use the same impact-based severity as ux-critique. Severity describes harm or friction; P0/P1/P2 describe delivery priority.
 
 | Level | Meaning |
 |-------|---------|
-| P0 | Wrong or missing decision blocks the job or risks harm |
-| P1 | Confusing or incomplete; fix before polish |
-| P2 | Nice clarification |
-| P3 | Optional note |
+| Blocker | The supported core job cannot complete, access fails, or material harm is likely |
+| Major | Substantial friction with a usable, understood workaround |
+| Polish | Clarification or craft that does not block the job |
+
+Critical failures block the affected handoff even when tracked in a ticket. Use the shared readiness rule; assigning a priority does not resolve a failure.
 
 ## Never invent
 

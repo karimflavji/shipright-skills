@@ -1,159 +1,117 @@
-# Sample skill outputs — invite teammate (teaching only)
+# Sample outputs: invite teammate
 
-**Status: DRAFT example — fictional Acme Team.**  
-**Pack:** ShipRight 0.2.1-draft  
-These are **abbreviated** samples so you can see shape + gates. Real runs should be fuller.
+**Status: DRAFT; fictional teaching example, not an observed model run.**
+**Pack:** ShipRight
+**Actual sources:** `filled-01-prd-excerpt.md` and the inline specification v1 below. Docs 02–05 and any generated UI are absent.
 
----
+## 0. Decision ownership
 
-## 0) Intake (shared, one short message)
+**User:** “Work on Owner invites with the fixed Member role. You decide the layout. Let me decide invitation expiry. I have not answered the delivery/retry question.”
 
-**Agent asks (4 questions):**
+**Agent:** “I recommend a Members list with an Invite modal within that scope. Expiry remains your decision. Delivery/retry behavior is unresolved; I can outline independent UI work but cannot mark the send behavior ready.”
 
-1. What flow? Examples: Invite teammate / Resend invite / Members empty. Or **you decide / let me decide**.  
-2. Primary user? Examples: New Owner / Member. Or **you decide / let me decide**.  
-3. Success moment? Examples: Invite sent + pending row. Or **you decide / let me decide**.  
-4. Constraints? Examples: No new roles / Owner-only invite. Or **you decide / let me decide**.
+| Choice | Status | Source |
+| --- | --- | --- |
+| Owner initiates invite; invitee role Member | Approved for this fictional exercise | User instruction above |
+| Members list + Invite modal | Approved through delegated layout choice | User delegation above |
+| Expiry | Unresolved; reserved to user | User instruction above |
+| Delivery/retry behavior | Unresolved | Unanswered question; silence is not approval |
 
-**User:** let me decide on all.
+No existing answers are asked again. The agent does not decide expiry or mark a default approved.
 
-**Agent finalizes:**  
-`ASSUMPTION` — Flow = Invite teammate (J1). User = Workspace Owner. Success = invite email sent + pending row. Constraint = Owner-only; Member role only.  
-Job: *Owner invites a teammate by email in under two minutes.*
+## 1. Inline specification v1
 
----
+**Job:** Owner invites a coworker as Member and sees pending status.
 
-## 1) product-design (excerpt)
+**Current slice:** Members list and Invite modal. No search or filters. The PRD's later resend/join behavior is not specified by this slice. No email is actually sent by this document.
 
-**Mode:** Shape flow  
+1. Owner opens Members; existing pending/active records are shown.
+2. Owner opens Invite modal, enters email; role is displayed as fixed Member.
+3. Invalid email shows an inline error and preserves the value.
+4. Valid submit enters a busy state and prevents duplicate activation.
+5. On confirmed request acceptance, close the modal and show a pending invitation. Pending is not proof of delivery or acceptance by the invitee.
+6. Cancel before submission closes without creating an invitation.
+7. A non-Owner opening Invite sees a denied message and Back.
 
-**Happy path**
+**Known gap:** Send failure and outcome-unknown timeout have no specified recovery. Illustrative ticket T7 assigns this to Engineering; this file is its only record and no ticket system is implied.
 
-1. Owner opens Members  
-2. Owner clicks **Invite teammate**  
-3. Owner enters email + role Member  
-4. System validates + sends invite  
-5. Owner sees pending row; invitee gets email  
+| State | Specified behavior |
+| --- | --- |
+| Empty | No other teammates yet; Invite teammate action |
+| Loading | Busy form prevents duplicate activation |
+| Success | Pending row after confirmed request acceptance |
+| Error | Validation preserves input; send failure/timeout behavior is missing |
+| Permission denied | Owner-only message and Back |
+| Filtered empty | Not applicable: no filtering in this slice |
 
-**Fail / cancel path**
+### Product decision gate
 
-1. Invalid email → inline error; keep input  
-2. Send fails → form error + Retry; no fake success  
-3. Owner cancels → close modal; no invite created  
-4. Member opens Invite → **permission denied** (not empty state)
+**Stage:** Specification v1; **next step:** complete builder handoff. Scope, access/effects and send recovery are critical. Unknown implementation details are not established facts.
 
-**State table (abbrev)**
+| # | Check | Status | Evidence / next action |
+| --- | --- | --- | --- |
+| 1 | Relevant context | Fail | v1 lacks required send recovery; use the excerpt, not assumed docs |
+| 2 | Job/outcome | Pass | Job stated above |
+| 3 | Scoped path | Pass | Two named surfaces and fixed Member role |
+| 4 | Failure/cancel | Fail | Cancel/validation defined; send failure and timeout are not; complete T7 |
+| 5 | Required states | Fail | Missing send-error behavior; assigning T7 does not resolve it |
+| 6 | Filtered empty | Not applicable | No filter requirement; do not add one |
+| 7 | Consequential actions | Fail | Expiry and uncertain send/retry consequences remain unresolved; invitation can lead to workspace access and external delivery |
+| 8 | Open decisions | Pass | User-reserved and unanswered choices recorded above; this does not clear their blockers |
 
-| State | User sees | Primary action |
-|-------|-----------|----------------|
-| Empty | “No teammates yet” | Invite teammate |
-| Loading | Skeleton rows / busy button | — |
-| Success | Pending or active row | Resend (pending) |
-| Error | “Couldn’t send invite” | Retry |
-| Permission denied | “Only owners can invite” | Back / ask owner |
-| Filtered empty | “No teammates match filter” | Clear filter |
+**Verdict:** Fix first. Layout work independent of those gaps can remain provisional.
 
-### Decision gate (8 checks)
+## 2. UI specification notes
 
-| # | Check | Result | Note |
-|---|-------|--------|------|
-| 1 | Docs refuse gate | **Pass** | PRD excerpt + assumed thin 02–04 |
-| 2 | Job one sentence | **Pass** | Owner invites by email |
-| 3 | Happy path in scope | **Pass** | J1 only |
-| 4 | Fail/cancel path | **Pass** | Validation, send fail, cancel, denied |
-| 5 | Core states | **Pass** | Empty/loading/success/error/denied |
-| 6 | Empty ≠ filtered empty | **Pass** | Called out |
-| 7 | Destructive/high-risk | **Pass** | N/A for invite; resend is safe |
-| 8 | Open Qs / ASSUMPTIONs | **Pass** | Bounce expiry still open in PRD |
+**Direction:** A clear Members list and focused Invite form. Use the approved product tokens when available. No tokens or visual artifact have been supplied, so palette, contrast and rendering are not verified. Numerical dials add no useful evidence here.
 
-**Handoff to ui-ux-design:** Screens Members list + Invite modal. Primary CTA: Invite teammate. No Blog/Analytics nav.
+**Members:** Title, explanation, Invite teammate action, empty or populated list.
+**Invite:** Email, fixed Member label, Send invite, Cancel, inline error region.
 
----
+### UI pre-flight
 
-## 2) ui-ux-design (excerpt)
+**Stage/artifact:** Specification v1 plus the notes above; **next step:** decided UI handoff. State/recovery and access requirements are critical.
 
-**Design read:** Trust-first B2B members list — calm, single primary CTA, low motion.  
-**Dials:** VARIANCE=5 · MOTION=3 · DENSITY=5  
-**Personal taste loaded:** no
+| # | Check | Status | Evidence / next action |
+| --- | --- | --- | --- |
+| 1 | Screen context | Pass | Delegated layout and scope are recorded; no assumed doc 04 |
+| 2 | Direction | Pass | Two focused surfaces support the job; no dials required |
+| 3 | Actions | Pass | Invite teammate, Send invite and Cancel have clear roles |
+| 4 | State UI | Fail | Send recovery UI depends on unresolved T7 |
+| 5 | Integrity/craft | Pass | These written notes claim no fake metrics or invented destinations; rendering is not assessed |
+| 6 | Navigation | Pass | Only the specified Members/Invite surfaces |
+| 7 | Accessibility spec | Fail | Keyboard entry, containment, return focus and error announcement need acceptance requirements |
+| 8 | Motion | Not applicable | No animation specified |
+| 9 | Content/density | Not verified | No rendered layout or realistic-content review exists |
+| 10 | Review handoff | Pass | This version, sources and gaps are identified; it is ready to critique, not ready to build or release |
 
-**Structure — Members (empty)**
+**Verdict:** Fix first for a decided handoff. Useful critique can proceed now.
 
-1. H1: Teammates  
-2. Short context: Invite people to collaborate in this workspace  
-3. Primary CTA: **Invite teammate**  
-4. Empty illustration optional — quiet, not purple mesh  
+## 3. UX critique
 
-**Structure — Invite modal**
+**Artifact:** Actual written specification v1 above, not a generated screen.
+**Stage:** Specification. **Next stage:** builder handoff.
+**Critical requirements:** Supported job, access/consequences, failure recovery and implementable accessibility behavior.
 
-1. Title: Invite teammate  
-2. Email field + Role (Member, locked for v1)  
-3. Primary: Send invite · Secondary: Cancel  
-4. Inline error region  
+**M1 — Send recovery is unspecified.** T7 is recorded, not resolved. Specify retained input, persistent effects and recovery. Distinguish confirmed failure from outcome unknown before retrying. Define when another request is safe; do not promise delivery or cost behavior without evidence. Route: product-design + Engineering.
 
-**AVOID:** purple gradients, emoji icons, fake “Active users +128%” widgets, invented nav.
+**M2 — Accessibility behavior is underspecified.** Define modal entry/focus return, keyboard actions and error announcements. Later verify them in the actual implementation. Route: ui-ux-design + Engineering.
 
-### 10-gate pre-flight
+Severity here describes incomplete specifications, not observed runtime harm. These requirements are still critical for this handoff. Do not use a Major label to waive them.
 
-| # | Gate | Result | Note |
-|---|------|--------|------|
-| 1 | Screen locked | **Pass** | Members + Invite (assumed doc 04) |
-| 2 | Design read + dials | **Pass** | Stated above |
-| 3 | Primary action | **Pass** | Invite teammate |
-| 4 | States covered | **Pass** | Table in product-design + UI notes |
-| 5 | Anti-slop | **Pass** | Bans listed |
-| 6 | Nav honesty | **Pass** | No invented destinations |
-| 7 | A11y baseline | **Pass** | Focus order modal; text errors |
-| 8 | Motion honesty | **Pass** | MOTION=3; fade only |
-| 9 | Dial fidelity | **Pass** | Balanced density; no hero theater |
-| 10 | Assumptions + critique-ready | **Pass** | Ready for ux-critique |
+### Critique audit
 
----
+| # | Check | Status | Evidence / next action |
+| --- | --- | --- | --- |
+| 1 | Artifact | Pass | Written specification v1 is supplied in this file |
+| 2 | Context honesty | Pass | Only the PRD excerpt and inline spec are claimed |
+| 3 | Job clarity | Pass | Heuristic reading: Owner invites Member; no user testing claimed |
+| 4 | Actions | Pass | Named actions match the stated job |
+| 5 | States | Fail | Send failure/timeout missing; T7 does not make it Pass |
+| 6 | Blockers | Not verified | Incomplete access/effect decisions prevent concluding that no blocker exists |
+| 7 | Visual craft | Not verified | No rendered screen supplied |
+| 8 | Trust/consequences | Fail | Spec does not yet establish expiry and safe uncertain-send handling |
+| 9 | Accessibility | Fail | Planned behavior incomplete; implementation is also Not verified |
+| 10 | Rewrite path | Pass | M1/M2 describe corrections and retest requirements; neither issue is closed |
 
-## 3) ux-critique (excerpt — against a bad Path A generate)
-
-**Artifact:** Hypothetical Stitch “Members dashboard” with gradient hero + 6 widgets  
-**Verdict:** **fix-then-ship** (actually: strip invents, then redesign against docs)
-
-### Findings (sample)
-
-**B1 — [Blocker] Permission denied missing**  
-- Evidence: Member view looks identical; invite always shown  
-- Rewrite ask: Add denied state from product-design; hide Invite for non-owners  
-- Route: product-design + ui-ux-design  
-
-**M1 — [Major] Invented Analytics widgets**  
-- Evidence: “Productivity +128%” not in PRD  
-- Rewrite ask: Remove widgets; Members list + Invite only  
-- Route: ui-ux-design  
-
-**M2 — [Major] Purple gradient + emoji icons**  
-- Evidence: Hero mesh + ✨ badges  
-- Rewrite ask: Neutral surface + SVG icons per anti-slop rules  
-- Route: ui-ux-design  
-
-### 10-gate ship audit
-
-| # | Gate | Result | Note |
-|---|------|--------|------|
-| 1 | Artifact | **Pass** | Generate attached |
-| 2 | Docs honesty | **Pass** | Critiqued vs PRD excerpt |
-| 3 | Job clarity | **Fail** | Hero hides Members job |
-| 4 | Primary action | **Fail** | Competing Upgrade / Get started |
-| 5 | States | **Fail** | No denied/error/empty distinct |
-| 6 | No blockers open | **Fail** | B1 open |
-| 7 | Anti-slop | **Fail** | Gradient + fake metrics |
-| 8 | Trust / dark patterns | **Pass** | No fake urgency timers |
-| 9 | A11y baseline | **Fail** | Color-only status dots |
-| 10 | Rewrite path | **Pass** | Each finding routed |
-
-**Next steps:** Return to ui-ux-design with Path B structure notes; re-critique; then tickets in doc 05.
-
----
-
-## Takeaway
-
-Path A fails the ship audit. Path B passes decision gate + pre-flight **before** generate — so critique stays small (polish), not a product rewrite.
-
----
-
-*DRAFT example — ShipRight — not a live product*
+**Verdict:** Fix first. Review the corrected specification once M1/M2 and reserved decisions are resolved. A later rendered/runtime result needs its own evidence. Do not mark corrected checks Pass until that corrected artifact exists.

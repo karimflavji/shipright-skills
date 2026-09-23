@@ -2,7 +2,7 @@
 
 **Status: DRAFT template — not published.**  
 **Pack:** ShipRight  
-**How to use:** Fill every section before running skills or generating UI. If something is unknown, write `UNKNOWN` and why — do not leave AI to invent it later.
+**How to use:** Use relevant sections to record current product context. Skills may help draft missing sections provisionally. Mark unknowns and proposed decisions; missing files do not grant approval to invent scope.
 
 **Product / feature name:** <!-- write here -->  
 **Author:** <!-- write here -->  
@@ -103,16 +103,16 @@ List the jobs. Detail flows later with the **product-design** skill.
 
 ## 9. Dependencies
 
-- **Docs that must exist:** `02` Technical Architecture, `03` Security & Access, `04` Frontend Spec, `05` Feature Ticket List
+- **Related templates (use as relevant):** `02` Technical Architecture, `03` Security & Access, `04` Frontend Spec, `05` Feature Ticket List
 - **External systems:** <!-- write here -->
 - **People / approvals:** <!-- write here -->
 
-## 10. Ready check (before skills)
+## 10. Context check (for the requested commitment)
 
 - [ ] Problem and users are clear
 - [ ] Goals and non-goals are written
 - [ ] Scope is bounded
-- [ ] No section left blank without `UNKNOWN`
+- [ ] Relevant unknowns and their effect on readiness are explicit
 - [ ] Ready for `product-design` skill
 
 ---
