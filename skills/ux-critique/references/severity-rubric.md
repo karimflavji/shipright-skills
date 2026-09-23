@@ -11,7 +11,7 @@ Ship is unsafe or the core job fails.
 
 Examples:
 
-- Primary task cannot be completed
+- Primary task cannot be completed, including on a supported mobile viewport
 - Data loss without warning
 - Permission denied shows as blank/broken with no recovery
 - Security-sensitive action exposed to wrong role (vs doc 03)
@@ -22,7 +22,7 @@ Examples:
 
 ### Major
 
-Serious friction or misleading UI; users will struggle or distrust.
+Substantial friction with a usable, understood workaround. If the core supported task fails, classify it as Blocker regardless of whether the cause is visual.
 
 Examples:
 
@@ -31,9 +31,9 @@ Examples:
 - Nav or features invented vs docs (even if pretty)
 - Multiple strong AI-slop tells that hide the real product
 - Form loses user input on error
-- Mobile layout breaks primary task
+- Mobile layout adds friction but the primary task remains usable
 
-**Rule:** Fix before release when possible; if deferred, record risk on ticket.
+**Rule:** Critical requirements block the affected stage even if labeled Major. A noncritical deferral needs explicit disposition and impact; the underlying check remains Fail. A ticket alone does not resolve it.
 
 ### Polish
 
@@ -57,6 +57,8 @@ Examples:
 4. One finding = one problem (do not bundle unrelated issues)
 
 ## Mapping to tickets (doc 05)
+
+Severity is impact; priority is delivery order. Retest the affected artifact/version before closing a finding. See the shared operating contract for readiness.
 
 | Severity | Ticket priority suggestion |
 |----------|----------------------------|

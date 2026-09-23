@@ -5,6 +5,8 @@
 
 These patterns show up often from vibe-coding UI tools (Claude Design, Figma AI, Google Stitch, generic Cursor/Codex UI, etc.). Spot them; ask for rewrites grounded in docs.
 
+Visual patterns below are contextual prompts, not automatic failures. Approved purple palettes, gradients, emoji or a single typeface can be appropriate. Explain the actual impact; visual preferences cannot waive fabricated proof, inaccessible critical controls or other integrity requirements.
+
 ## Visual slop
 
 | Tell | Why it’s a problem | Rewrite direction |
@@ -13,7 +15,7 @@ These patterns show up often from vibe-coding UI tools (Claude Design, Figma AI,
 | Glassmorphism + blur on every card | Decoration, weak hierarchy | Flat surfaces; elevation only when needed |
 | Hero with stock-looking abstract 3D shapes | Decoration meaning | Real product UI or simple diagram |
 | Too many accent colors | No hierarchy | One primary CTA color; neutrals dominate |
-| Emoji used as icons | Inconsistent, unprofessional, a11y weak | SVG icon set (e.g. system / Lucide-style) |
+| Ambiguous or inconsistently labeled icons | Meaning or accessible name unclear | Use the approved icon system with meaningful labels; emoji alone is not a failure |
 | Random illustration style mix | Feels generated | One illustration system or none |
 | Centered-everything sections | Symmetry as default = template feel | Bias layout when the job needs it |
 
@@ -50,7 +52,7 @@ These patterns show up often from vibe-coding UI tools (Claude Design, Figma AI,
 
 ## How to report a tell
 
-In critique findings, name the tell, point to evidence on the screen, and give a **rewrite ask** that cites doc 01/04 when possible. Mark related **ship audit** gates Fail until fixed.
+In critique findings, name the tell, point to evidence on the screen, and give a **rewrite ask** that cites doc 01/04 when possible. A demonstrated defect keeps its related audit check Fail until fixed and retested. Missing evidence is Not verified. Review only the stage supported by the artifact; an assigned ticket does not make a check Pass.
 
 ---
 
