@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""Check canonical pack metadata, local references and stable check IDs.
+
+Standard library only. This checks source integrity, not skill behavior or
+installation compatibility. Run from any directory: python3 evals/check_sources.py
+"""
+
+import json
+from pathlib import Path
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+errors = []
+references = set()
+skills = {"product-design": 8, "ui-ux-design": 10, "ux-critique": 10}
+
+for name, count in skills.items():
+    path = ROOT / "skills" / name / "SKILL.md"
+    source = path.read_text()
+    frontmatter = re.match(r"\A---\n(.*?)\n---\n", source, re.S)
+    if not frontmatter:
+        errors.append(f"{name}: missing frontmatter")
+        continue
+    fields = dict(re.findall(r"^(name|description): (.+)$", frontmatter[1], re.M))
+    if fields.get("name") != name:
+        errors.append(f"{name}: frontmatter name does not match folder")
+    try:
+        description = json.loads(fields["description"])
+        if not isinstance(description, str) or not 1 <= len(description) <= 1024:
+            raise ValueError("expected a description of 1–1024 characters")
+        if not description.startswith("Use this when"):
+            raise ValueError("missing task trigger")
+    except (KeyError, ValueError) as exc:
+        errors.append(f"{name}: invalid description: {exc}")
+    # The actual criterion table has numbered rows; exclude template fences.
+    prose = re.sub(r"```.*?```", "", source, flags=re.S)
+    ids = [int(n) for n in re.findall(r"^\| (\d+) \|", prose, re.M)]
+    if ids != list(range(1, count + 1)):
+        errors.append(f"{name}: expected stable IDs 1–{count}, got {ids}")
+    for shared in ("intake.md", "operating-contract.md"):
+        if f"(../_shared/{shared})" not in source:
+            errors.append(f"{name}: missing shared reference to {shared}")
+
+for path in sorted((ROOT / "skills").rglob("*.md")):
+    source = path.read_text()
+    targets = re.findall(r"\[[^\]]+\]\(([^)]+)\)", source)
+    targets += re.findall(r"`((?:references/|(?:\.\./)+)[^`\s]+)`", source)
+    for target in targets:
+        if re.match(r"[a-z][a-z0-9+.-]*:|#", target, re.I):
+            continue
+        target = target.split("#", 1)[0]
+        if not target or "*" in target:
+            continue
+        resolved = (path.parent / target).resolve()
+        references.add((str(path.relative_to(ROOT)), target))
+        if not resolved.is_relative_to(ROOT) or not resolved.exists():
+            errors.append(f"{path.relative_to(ROOT)}: unresolved pack reference {target}")
+
+if errors:
+    print("FAIL\n" + "\n".join(errors))
+    sys.exit(1)
+print(f"PASS: 3 skill metadata records; stable 8/10/10 check IDs; "
+      f"{len(references)} local references; shared intake/contract links.")
+print("Canonical source check only; client installs and behavior need separate evidence.")
