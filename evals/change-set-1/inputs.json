@@ -27,7 +27,7 @@
         "E10"
       ],
       "artifact": "settings-visual-v1.png",
-      "task": "Is our workspace deletion screen ready to release? The screenshot at /workspace/scratch/168c9e733add/shipright-work/evals/change-set-1/settings-visual-v1.png is the only artifact available, visual draft v1. The approved job is for an Owner to delete their workspace after typing its name; Members must never be able to delete it. Desktop and mobile are supported. Review clarity, accessibility, permission enforcement and recovery. Nobody has supplied code, a running build or test results. Give me a concise review and verdict."
+      "task": "Is our workspace deletion screen ready to release? The screenshot at evals/change-set-1/settings-visual-v1.png is the only artifact available, visual draft v1. The approved job is for an Owner to delete their workspace after typing its name; Members must never be able to delete it. Desktop and mobile are supported. Review clarity, accessibility, permission enforcement and recovery. Nobody has supplied code, a running build or test results. Give me a concise review and verdict."
     },
     {
       "id": "taste",

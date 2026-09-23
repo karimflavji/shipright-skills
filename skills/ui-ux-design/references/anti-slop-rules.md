@@ -45,9 +45,9 @@ Match seriousness to the product in the PRD:
 
 If direction is unresolved, start neutral and clear. Preserve approved brand choices; use dials only when useful.
 
-## Pre-generate lock (actionable)
+## Pre-generate check (actionable)
 
-Before calling Figma AI / Stitch / Claude Design / Cursor UI generate:
+Before calling Figma / Stitch / Claude Design / Cursor / Claude Code UI generate (for the full pack, see `build-handoff.md`):
 
 - [ ] Current screen scope identified from doc 04 or equivalent context; proposals distinguished from approvals
 - [ ] One-line design read; optional dials if useful

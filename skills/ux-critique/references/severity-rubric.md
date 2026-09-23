@@ -7,7 +7,7 @@
 
 ### Blocker
 
-Ship is unsafe or the core job fails.
+Ship is unsafe, the core job fails, or **any stage-critical requirement fails** at the reviewed stage (including a missing required behavior in a specification).
 
 Examples:
 
@@ -22,18 +22,18 @@ Examples:
 
 ### Major
 
-Substantial friction with a usable, understood workaround. If the core supported task fails, classify it as Blocker regardless of whether the cause is visual.
+Noncritical only: substantial friction with a usable, understood workaround. If the core supported task fails, or a stage-critical requirement fails, classify it as Blocker regardless of whether the cause is visual. Never write "Major, but critical".
 
 Examples:
 
-- Missing error or empty state on a P0 screen
+- Missing empty state on a P0 screen when the job still completes (a missing error/recovery path on a critical flow is a Blocker)
 - Primary action unclear; competing CTAs
 - Nav or features invented vs docs (even if pretty)
 - Multiple strong AI-slop tells that hide the real product
 - Form loses user input on error
 - Mobile layout adds friction but the primary task remains usable
 
-**Rule:** Critical requirements block the affected stage even if labeled Major. A noncritical deferral needs explicit disposition and impact; the underlying check remains Fail. A ticket alone does not resolve it.
+**Rule:** A noncritical deferral needs explicit disposition and impact; the underlying check remains Fail. A ticket alone does not resolve it.
 
 ### Polish
 

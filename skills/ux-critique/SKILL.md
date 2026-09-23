@@ -1,12 +1,12 @@
 ---
 name: ux-critique
-description: "Use this when reviewing a product specification, screen, prototype or implementation for task clarity, states, trust, accessibility and decision drift. Distinguish what is specified, visible and verified. Part of ShipRight."
+description: "Use this when reviewing a product specification, screen, prototype or implementation for task clarity, states, trust, accessibility and decision drift, auditing an existing product before launch, or checking what a build tool actually built (screenshots, links, running apps). Distinguish what is specified, visible and verified. Part of ShipRight."
 ---
 
 # UX Critique Skill — ShipRight
 
-**Status: Public draft; these changes are unreleased.**
-**Pack version:** 0.2.1-draft  
+**Status: Public draft.**
+**Pack version:** 0.3.0-draft  
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -37,9 +37,11 @@ Identify the artifact/version, review stage, user job and requested next step. A
 
 **You decide** delegates only the named choice. **Let me decide** reserves it for the user. Blank answers stay unresolved; continue independent work.
 
+**Core rules if `../_shared` is unreachable (say so):** You decide = only the named choice. Let me decide = the user keeps it. Blank or silence = unresolved, never approval. Statuses: Pass · Fail · Not verified · Not applicable (with reason). A ticket, owner or plan never turns Fail into Pass; a stage-critical Fail is a Blocker. Spec ≠ screenshot ≠ implementation evidence. Readiness never authorizes deploy, publish or payment.
+
 ## 2. When to use / When NOT
 
-**Use when** a written specification, mock, generated output, or coded UI exists and someone asks: review, critique, audit, find issues, is this shippable?
+**Use when** a written specification, mock, generated output, or coded UI exists and someone asks: review, critique, audit, find issues, is this shippable? Also use when a build tool has produced screens from a ShipRight build handoff pack: compare the result with the approved screen jobs and states.
 
 **Do NOT use when** there is no artifact to review — request the smallest relevant specification, screen or result. Use **product-design** if the user needs help shaping it. Do not use as pure brand illustration feedback.
 
@@ -73,11 +75,28 @@ Use `references/severity-rubric.md`. Short form:
 
 | Severity | Meaning | Ship rule |
 |----------|---------|-----------|
-| **Blocker** | Stops the job, causes harm, or major access failure | Do not ship |
-| **Major** | Substantial friction with a usable, understood workaround | Record impact and explicit disposition; critical requirements still block the affected stage |
+| **Blocker** | Stops the job, causes harm, major access failure, **or fails any stage-critical requirement** | Do not pass this stage |
+| **Major** | Noncritical: substantial friction with a usable, understood workaround | Record impact and explicit disposition |
 | **Polish** | Visual/copy nits that do not block the job | Backlog OK |
 
 ## 6. Output format
+
+Lead with the verdict and next action (120 words or fewer). Then findings, then the audit table. At Quick fix depth, skip the table.
+
+**Product audit (optional; existing product, Focused improvement depth).** When the user wants an existing product improved or ready for launch, put this block above the findings:
+
+```text
+## Product audit — [scope]
+Top 3 problems (by user impact, not fix difficulty):
+1. …
+What's working (keep it):
+- …
+Root cause behind several problems:
+- …
+Patch or rethink: [one honest call + why]
+```
+
+Audit one lane per session (one flow, one screen, or one dimension). Do not reopen approved decisions; route a wrong decision to product-design.
 
 ```text
 ## Critique summary
@@ -86,7 +105,8 @@ Use `references/severity-rubric.md`. Short form:
 - Critical requirements for this stage:
 - Intake goal:
 - Docs available: yes/partial/no (list gaps)
-- Verdict: Ready for [stage] / Fix first / Not established / Re-decide
+- Verdict: Re-decide / Fix first / Needs decision (D#) / Not established / Ready for [stage]
+- Next action (one line):
 
 ## Findings
 ### B1 — [Blocker] Title
@@ -139,6 +159,8 @@ If research is needed, say **unknown — needs research**, do not fabricate.
 
 ## 9. Audit (10 checks; evidence for the named stage)
 
+Run the table when a readiness claim is requested or at a handoff. For a Quick fix, give a one-line readiness note instead.
+
 Use the shared contract's four statuses and readiness rule. Define critical requirements before scoring. Every relevant check needs evidence and next action tied to the artifact/version in the header. A finding, owner or ticket never substitutes for meeting the requirement. Defer only noncritical work, with explicit disposition; the check remains Fail or Not verified as appropriate.
 
 | # | Gate | Criterion |
@@ -154,7 +176,7 @@ Use the shared contract's four statuses and readiness rule. Define critical requ
 | 9 | Accessibility | Evidence fits this stage; screenshots cannot verify keyboard behavior or implementation compliance |
 | 10 | Rewrite path | Findings have concrete corrections and retest conditions; this does not resolve their underlying failures |
 
-**Verdict:** Re-decide the affected premise; otherwise Fix first for a critical failure or open Blocker; otherwise Not established for an unverified critical requirement; otherwise Ready for the named next stage with explicit noncritical dispositions. This applies to all ten checks. Readiness does not grant external-action permission.
+**Verdict:** Re-decide the affected premise; otherwise Fix first for a critical failure or open Blocker; otherwise Needs decision (D#) when the only open items are the user's own decisions; otherwise Not established for an unverified critical requirement; otherwise Ready for the named next stage with explicit noncritical dispositions. This applies to all ten checks. Readiness does not grant external-action permission.
 
 ## 10. Quality gate (skill completeness)
 
@@ -172,7 +194,8 @@ Use the shared contract's four statuses and readiness rule. Define critical requ
 - [Operating contract](../_shared/operating-contract.md)
 - `references/slop-tells.md`
 - `references/severity-rubric.md`
+- `references/bounded-verification.md` (optional; implementation stage — screenshot and fix loop)
 
 ---
 
-*DRAFT — skills/ux-critique/SKILL.md — ShipRight 0.2.1-draft*
+*Public draft — skills/ux-critique/SKILL.md — ShipRight 0.3.0-draft*

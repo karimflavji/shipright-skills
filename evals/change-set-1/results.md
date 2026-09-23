@@ -2,6 +2,7 @@
 
 Date: 2026-09-22. Base commit: `842329e3b163ded521ee4207af12fd3bf57073b5`.
 Candidate: local branch `fix/decision-ownership-and-review-evidence`, uncommitted working tree.
+Later note: merged to main as `a6ae2a1` on 2026-09-23 (PR #1, released as 0.2.2-draft).
 
 Five fresh-context agents ran once each, covering eight targeted cases. The harness
 and exact task text are in `inputs.json`; expected outcomes were excluded from

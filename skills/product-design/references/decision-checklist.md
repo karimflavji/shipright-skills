@@ -44,8 +44,8 @@ Use the same impact-based severity as ux-critique. Severity describes harm or fr
 
 | Level | Meaning |
 |-------|---------|
-| Blocker | The supported core job cannot complete, access fails, or material harm is likely |
-| Major | Substantial friction with a usable, understood workaround |
+| Blocker | The supported core job cannot complete, access fails, material harm is likely, or any stage-critical requirement fails |
+| Major | Noncritical: substantial friction with a usable, understood workaround |
 | Polish | Clarification or craft that does not block the job |
 
 Critical failures block the affected handoff even when tracked in a ticket. Use the shared readiness rule; assigning a priority does not resolve a failure.

@@ -50,16 +50,16 @@ No existing answers are asked again. The agent does not decide expiry or mark a 
 
 | # | Check | Status | Evidence / next action |
 | --- | --- | --- | --- |
-| 1 | Relevant context | Fail | v1 lacks required send recovery; use the excerpt, not assumed docs |
+| 1 | Relevant context | Pass | The PRD excerpt and user instruction support this slice; unresolved expiry and delivery are recorded as open, not assumed |
 | 2 | Job/outcome | Pass | Job stated above |
 | 3 | Scoped path | Pass | Two named surfaces and fixed Member role |
-| 4 | Failure/cancel | Fail | Cancel/validation defined; send failure and timeout are not; complete T7 |
+| 4 | Failure/cancel | Fail | Cancel/validation defined; send failure and timeout are not; T7 records the gap but does not resolve it |
 | 5 | Required states | Fail | Missing send-error behavior; assigning T7 does not resolve it |
 | 6 | Filtered empty | Not applicable | No filter requirement; do not add one |
 | 7 | Consequential actions | Fail | Expiry and uncertain send/retry consequences remain unresolved; invitation can lead to workspace access and external delivery |
 | 8 | Open decisions | Pass | User-reserved and unanswered choices recorded above; this does not clear their blockers |
 
-**Verdict:** Fix first. Layout work independent of those gaps can remain provisional.
+**Verdict:** Fix first. Send recovery is missing regardless of any user decision; expiry (user-reserved) also remains open. Layout work independent of those gaps can remain provisional.
 
 ## 2. UI specification notes
 
@@ -93,11 +93,11 @@ No existing answers are asked again. The agent does not decide expiry or mark a 
 **Stage:** Specification. **Next stage:** builder handoff.
 **Critical requirements:** Supported job, access/consequences, failure recovery and implementable accessibility behavior.
 
-**M1 — Send recovery is unspecified.** T7 is recorded, not resolved. Specify retained input, persistent effects and recovery. Distinguish confirmed failure from outcome unknown before retrying. Define when another request is safe; do not promise delivery or cost behavior without evidence. Route: product-design + Engineering.
+**B1 — Blocker (specification stage): send recovery is unspecified.** T7 is recorded, not resolved. Specify retained input, persistent effects and recovery. Distinguish confirmed failure from outcome unknown before retrying. Define when another request is safe; do not promise delivery or cost behavior without evidence. Route: product-design + Engineering.
 
-**M2 — Accessibility behavior is underspecified.** Define modal entry/focus return, keyboard actions and error announcements. Later verify them in the actual implementation. Route: ui-ux-design + Engineering.
+**B2 — Blocker (specification stage): accessibility behavior is underspecified.** Define modal entry/focus return, keyboard actions and error announcements. Later verify them in the actual implementation. Route: ui-ux-design + Engineering.
 
-Severity here describes incomplete specifications, not observed runtime harm. These requirements are still critical for this handoff. Do not use a Major label to waive them.
+Both are Blockers because they fail stage-critical requirements for builder handoff. They describe incomplete specifications, not observed runtime harm.
 
 ### Critique audit
 
@@ -108,10 +108,10 @@ Severity here describes incomplete specifications, not observed runtime harm. Th
 | 3 | Job clarity | Pass | Heuristic reading: Owner invites Member; no user testing claimed |
 | 4 | Actions | Pass | Named actions match the stated job |
 | 5 | States | Fail | Send failure/timeout missing; T7 does not make it Pass |
-| 6 | Blockers | Not verified | Incomplete access/effect decisions prevent concluding that no blocker exists |
+| 6 | Blockers | Fail | B1 and B2 are open |
 | 7 | Visual craft | Not verified | No rendered screen supplied |
 | 8 | Trust/consequences | Fail | Spec does not yet establish expiry and safe uncertain-send handling |
 | 9 | Accessibility | Fail | Planned behavior incomplete; implementation is also Not verified |
-| 10 | Rewrite path | Pass | M1/M2 describe corrections and retest requirements; neither issue is closed |
+| 10 | Rewrite path | Pass | B1/B2 describe corrections and retest requirements; neither issue is closed |
 
-**Verdict:** Fix first. Review the corrected specification once M1/M2 and reserved decisions are resolved. A later rendered/runtime result needs its own evidence. Do not mark corrected checks Pass until that corrected artifact exists.
+**Verdict:** Fix first. Review the corrected specification once B1/B2 and reserved decisions are resolved. A later rendered/runtime result needs its own evidence. Do not mark corrected checks Pass until that corrected artifact exists.

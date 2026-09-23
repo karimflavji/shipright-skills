@@ -1,8 +1,8 @@
 # 03 — Security & Access Document
 
-**Status: DRAFT template — not published.**  
+**Status: Template (ShipRight v0.3.0-draft).**  
 **Pack:** ShipRight  
-**How to use:** Lock roles, auth, and permissions so AI does not invent admin powers or expose data. This is a design/product checklist — not a formal security audit.
+**How to use:** Record roles, auth, and permissions so AI does not invent admin powers or expose data. This is a design/product checklist — not a formal security audit.
 
 **Product / feature name:** <!-- write here -->  
 **Author:** <!-- write here -->  
@@ -96,4 +96,4 @@ Skills must respect these:
 
 ---
 
-*DRAFT — docs/03-security-and-access.md*
+*Template — docs/03-security-and-access.md*

@@ -1,6 +1,6 @@
 # ShipRight
 
-**Status: Public draft.** Current local control/evidence fixes are unreleased; no new release is claimed.
+**Status: Public draft — v0.3.0-draft.** See [CHANGELOG.md](./CHANGELOG.md).
 
 **Tagline:** Context before generate. Product before pixels.
 
@@ -8,31 +8,53 @@
 
 ## One-line pitch
 
-Keep AI work grounded in product intent. Use the available context, resolve the decisions needed now, then apply product design, UI craft and honest critique. Five templates help record decisions; missing files do not prevent useful clarification or provisional drafting.
+ShipRight takes you from a rough idea to build-ready product decisions, the way a senior product team would, then checks what your AI tool actually builds.
+
+It works with Claude Design, Figma, Cursor, Claude Code, Codex, Antigravity, VS Code agents and similar tools. ShipRight decides what to build and why, then writes the build inputs. Your tool draws the screens.
 
 **Anti-slop** is a capability (evidence-based checks for unsupported scope, misleading content and weak UX), not the product name.
 
-## Why this pack (gap vs UI-only skills)
+## How it works
 
-| Pack type | What it does well | What it often skips |
-|-----------|-------------------|---------------------|
-| Taste Skill, Hallmark, UI UX Pro Max | Frontend taste, anti-slop visuals, pre-flight | Full product process before pixels |
-| **ShipRight** | **5 before-build docs + product-design + ui-ux-design + ux-critique** | Pure brand illustration / logo art |
+```text
+rough idea
+  → Frame product: outcome → differentiating system → core objects → journey → screen jobs   (product-design)
+  → optional opportunity research (only if you agree)
+  → flows + states for each screen job                                                     (product-design)
+  → screen specs + optional references + design-system direction                           (ui-ux-design)
+  → build handoff pack: rules block + one prompt per screen                                (ui-ux-design)
+  → your build tool makes the screens
+  → critique + screenshot check of what was built, max 2 fix passes                        (ux-critique)
+```
 
-UI-only packs polish screens. ShipRight forces **product before pixels**: jobs, roles, states, and tickets — then craft — then critique.
+You approve decisions along the way. Suggestions stay **Proposed** until you say yes. Silence is never approval.
 
-## Dual quality bar (ideas we match, text we do not copy)
+## Right-sized work
 
-1. **Taste Skill** — brief inference, design dials, hard pre-flight, not purple SaaS  
-2. **UI UX Pro Max** — lean skills + deep references, Avoid lists, states, a11y  
-3. **Hallmark-style rigor** — evidence-based checks, named slop tells, honest fail
+ShipRight matches effort to the request:
 
-We paraphrase. We do not copy proprietary skill text.
+| Depth | Example | What you get |
+| --- | --- | --- |
+| Quick fix | "Better label for this button" | A short answer. No research, no check tables |
+| Focused improvement | "This page feels cluttered; we launch this week" | Top problems, what to keep, what to ship now |
+| New surface | "Design the invite flow" | Flow, states, spec, checks at handoff |
+| New product | "I have a rough idea" | A one-page product frame first; research only if you agree |
+
+## Related packs (pair with them; we don't bundle them)
+
+| Pack | Strong at | ShipRight's different job |
+| --- | --- | --- |
+| [Taste Skill](https://github.com/Leonxlnx/taste-skill) | Anti-slop frontend taste, including redesigns of existing projects | Decides *what* each screen must do before taste is applied |
+| [Hallmark](https://github.com/nutlope/hallmark) | Anti-slop UI rules | Same |
+| [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Style and design-system suggestions by product type (Python CLI) | Preserves *your* decisions and evidence instead of a generated style |
+| [Impeccable](https://github.com/pbakaus/impeccable) | Product context file, design commands, deterministic detectors (CLI + hooks) | Multi-screen product frame, decision ownership, stage-bounded readiness; plain Markdown, no install tooling |
+
+Taste packs make it look right. ShipRight makes it be right, then tells your tool exactly what to build. Use them together if you like. If you have Figma MCP or Playwright connected, ShipRight's build and verification steps can use them; they are optional.
 
 ## Who this is for
 
-- Product designers, POs, and vibe-coders using Claude Design, Figma AI, Google Stitch, Cursor, Codex, Claude Code
-- Teams tired of generic “AI purple dashboard” output
+- Product designers, product owners, founders and vibe-coders using AI design and coding tools
+- Teams tired of generic "AI purple dashboard" output
 - Anyone who wants **context before generate**
 
 ## Who this is not for
@@ -41,149 +63,114 @@ We paraphrase. We do not copy proprietary skill text.
 - Brand illustration or logo art alone
 - Inventing fake user research or legal/medical advice
 
-## What’s inside
+## What's inside
 
 | Layer | Path | Job |
-|-------|------|-----|
-| Before-build docs | `docs/01`–`05` | Lock context so AI cannot invent |
-| Product decisions | `skills/product-design/` | Flows, states, **decision gate** |
-| UI/UX craft | `skills/ui-ux-design/` | Dials + **10-gate pre-flight** + anti-slop |
-| Critique | `skills/ux-critique/` | **10-gate ship audit** + severity findings |
-| Shared intake | `skills/_shared/intake.md` | Light 0–5 questions when needed (DRY) |
-| Shared contract | `skills/_shared/operating-contract.md` | Decision ownership, evidence and readiness |
-| Personal taste | `personal-taste/` | Your `.skill` overlays later (do not block drafts) |
+| --- | --- | --- |
+| Templates | `docs/01`–`05` | Record context and decisions so AI doesn't invent them (optional; missing docs never block drafting) |
+| Product decisions | `skills/product-design/` | Frame product, flows, states, **decision gate** |
+| UI/UX craft | `skills/ui-ux-design/` | Screen specs, references, design-system direction, **build handoff pack**, **10-check pre-flight** |
+| Critique | `skills/ux-critique/` | Reviews, product audit, screenshot verification, **10-check audit** |
+| Shared intake | `skills/_shared/intake.md` | Depth + 0–5 questions + decision ownership |
+| Shared contract | `skills/_shared/operating-contract.md` | Decision status, evidence and readiness rules |
+| Personal taste | `personal-taste/` | Your optional preference files |
 | Catalog | `skills.md` | Which skill + prompts |
 | Map | `architecture.md` | How the pack is organized |
-| Agent rules | `AGENTS.md` | Do / don’t for agents |
-| Example | `examples/sample-saas-onboarding/` | Fictional PRD excerpt, inline specification and sample reviews |
-
-## Workflow
-
-Use relevant project context, light intake if needed, product-design, ui-ux-design and specification critique before a decided build handoff. Update relevant tickets. Review the actual generated or implemented result before claiming its readiness. The three specialists and existing 8/10/10 checks remain; this update changes their evidence rules, not their responsibilities.
-
-Missing documents do not block clarification or a provisional draft. Do not invent facts, approved scope or capabilities. Block only commitments that depend on unresolved outcome, scope, access, cost or recovery. Templates full of UNKNOWN are not implementation readiness.
+| Maintainer rules | `AGENTS.md` | Rules for editing this pack (not for your app) |
+| Examples | `examples/` | Idea-to-screen-jobs walkthrough; fictional invite specification with honest reviews |
 
 ## Quality checks
 
-| Skill | Existing checks | Readiness scope |
+| Skill | Checks | Used when |
 | --- | --- | --- |
-| product-design | 8 | Product decision/handoff |
-| ui-ux-design | 10 | UI specification/pre-flight |
-| ux-critique | 10 | The named specification, visual artifact or implementation |
+| product-design | 8 | Before a product handoff |
+| ui-ux-design | 10 | Before a decided build handoff |
+| ux-critique | 10 | Reviewing a specification, visual artifact or implementation |
 
-Use **Pass**, **Fail**, **Not verified**, or **Not applicable** with a reason and evidence. A ticket, owner or fix plan never turns a failure into Pass. A screenshot cannot prove keyboard behavior, persistence or release readiness. Apply [the shared operating contract](skills/_shared/operating-contract.md) across all checks.
+Statuses: **Pass**, **Fail**, **Not verified**, **Not applicable** (with a reason). A ticket, owner or fix plan never turns a failure into Pass. A failure on a stage-critical requirement is a **Blocker**. A screenshot cannot prove keyboard behavior, persistence or release readiness.
 
-## Light intake and decision ownership
+Verdicts: **Re-decide**, **Fix first**, **Needs decision (D#)**, **Not established**, **Ready for [next stage]**. Readiness never authorizes deploy, publish or payment.
 
-Read existing context before asking. Zero questions is valid; ask only what changes the next decision, usually one and at most five per round. Do not repeat intake at each skill boundary.
+## Decision ownership
 
 - **You decide** delegates only the named choice.
-- **Let me decide** leaves the choice with the user.
+- **Let me decide** leaves the choice with you.
 - Blank or skipped answers stay unresolved; silence is not approval.
-- Latest explicit corrections supersede older product decisions within their scope. Preserve unrelated approvals.
+- Your latest explicit correction supersedes older decisions within its scope.
 
-See [shared intake](skills/_shared/intake.md). Optional preferences cannot override truthfulness, accessibility or the user's action limits.
-
-## Personal taste overlays (pending your files)
-
-Folder: `personal-taste/`. Drop Claude / Cursor / ChatGPT preference files later. The pack merges them **without rewriting** core skills. **Do not block drafts** waiting for those files.
+See [shared intake](skills/_shared/intake.md) and the [operating contract](skills/_shared/operating-contract.md).
 
 ## Install (copy-paste ready)
 
-Keep **one** canonical `skills/` folder. Skills use portable `SKILL.md` + `references/` (universal Agent Skills shape). Copy or symlink into your tool:
+Keep **one** canonical copy of this pack. Link the three skills **and** the `_shared` folder; the skills read `../_shared/`.
 
 ```bash
-# From this pack root (replace /path/to/pack with your real path)
-PACK=/path/to/shipright        # or /path/to/shipright-skills (repo root)
+PACK=/path/to/shipright-skills   # replace with your real path
 
-# --- Claude Code ---
+# --- Claude Code (personal) ---
 mkdir -p ~/.claude/skills
-ln -s "$PACK/skills/product-design" ~/.claude/skills/product-design
-ln -s "$PACK/skills/ui-ux-design"   ~/.claude/skills/ui-ux-design
-ln -s "$PACK/skills/ux-critique"    ~/.claude/skills/ux-critique
-# Shared intake + personal-taste stay reachable via relative paths inside the pack,
-# or copy the whole pack into your project and point skills there.
+for d in product-design ui-ux-design ux-critique _shared; do
+  ln -s "$PACK/skills/$d" ~/.claude/skills/$d
+done
 
-# Project-scoped Claude (recommended for teams)
+# --- Claude Code (project) ---
 mkdir -p .claude/skills
-ln -s "$PACK/skills/product-design" .claude/skills/product-design
-ln -s "$PACK/skills/ui-ux-design"   .claude/skills/ui-ux-design
-ln -s "$PACK/skills/ux-critique"    .claude/skills/ux-critique
+for d in product-design ui-ux-design ux-critique _shared; do
+  ln -s "$PACK/skills/$d" .claude/skills/$d
+done
 
 # --- Cursor ---
 mkdir -p .cursor/skills
-ln -s "$PACK/skills/product-design" .cursor/skills/product-design
-ln -s "$PACK/skills/ui-ux-design"   .cursor/skills/ui-ux-design
-ln -s "$PACK/skills/ux-critique"    .cursor/skills/ux-critique
+for d in product-design ui-ux-design ux-critique _shared; do
+  ln -s "$PACK/skills/$d" .cursor/skills/$d
+done
 
 # --- Codex / Agent Skills ---
 mkdir -p .agents/skills
-ln -s "$PACK/skills/product-design" .agents/skills/product-design
-ln -s "$PACK/skills/ui-ux-design"   .agents/skills/ui-ux-design
-ln -s "$PACK/skills/ux-critique"    .agents/skills/ux-critique
-# Personal Codex: ~/.codex/skills/ (same three folders)
+for d in product-design ui-ux-design ux-critique _shared; do
+  ln -s "$PACK/skills/$d" .agents/skills/$d
+done
 ```
 
-Also open or symlink `AGENTS.md` so the agent knows pack rules:
+If a tool can only take one skill folder (for example, a single-folder upload), each skill still carries a short inline copy of the core rules and will say that the shared files are missing. For full behavior, include `_shared`.
 
-```bash
-ln -s "$PACK/AGENTS.md" ./AGENTS.md
-# Optional Claude convention:
-ln -s "$PACK/AGENTS.md" ./CLAUDE.md
-```
+Do **not** copy `AGENTS.md` into your app: it contains rules for maintaining this pack.
 
-**Universal note:** Each skill is a folder with `SKILL.md` (YAML frontmatter + instructions) and optional `references/`. That shape works across tools that load Agent Skills. Do not fork three divergent copies — symlink or copy from this `skills/` source of truth.
+Exact paths can vary by tool version.
 
-Exact paths can vary by tool version — treat as draft guidance until Altaz says publish yes.
+## Example prompts
 
-**Suggested repo names (when publishing later):** `shipright` or `shipright-skills`.
+**1 — Start from a rough idea (product-design)**
+> Use the product-design skill. I have a rough idea: [one sentence]. No docs yet. Frame the product first.
 
-## Teaching example (not a benchmark)
+**2 — Improve an existing screen before launch (ux-critique)**
+> Use the ux-critique skill. Audit our [page] before launch. Approved and frozen: [colors, shapes, nav]. I want changes I can ship this week, not a redesign.
 
-See **`examples/sample-saas-onboarding/`**:
+**3 — Hand approved specs to a build tool (ui-ux-design)**
+> Use the ui-ux-design skill. Our frame and screen specs are approved in docs/. Make the build handoff pack for [Cursor / Claude Design / Figma].
 
-- A fictional invite specification with explicitly unresolved checks
-- Filled PRD excerpt
-- Sample outputs showing evidence, limits and required follow-up; no generated UI is attached
-
-## Three example prompts
-
-**1 — Shape a flow (product-design)**  
-> Use the product-design skill. Start with light intake (max 5 questions). Our filled docs are in docs/. Design the invite-teammate flow: happy path, fail path, and a state table. Run the 8-check decision gate. Do not invent features not in the PRD.
-
-**2 — Craft UI (ui-ux-design)**  
-> Use the ui-ux-design skill against docs/01–04. Light intake, then one-line design read + dials. Spec empty, loading, error, and success for the onboarding checklist. Run the 10-gate pre-flight for this specification. Evaluate the approved visual direction on its merits. Load personal-taste/ if present.
-
-**3 — Critique before ship (ux-critique)**  
-> Use the ux-critique skill. Short intake: what to critique + goal. Run the 10-gate ship audit. List blockers, majors, and polish. Flag AI-slop tells. Suggest rewrite asks — do not invent fake user quotes.
+**4 — Check what got built (ux-critique)**
+> Use the ux-critique skill. Here are desktop and mobile screenshots of [screen] built from the pack. Compare them with the approved screen job and states.
 
 ## Boundaries
 
 Follow the shared operating contract for decision authority and readiness.
 
 - **Do not** turn proposed scope, roles or screens into approved requirements
-- **Do not** claim user research was done unless sources are listed  
-- **Do not** use dark patterns (trick opt-outs, fake urgency, hidden costs)  
+- **Do not** turn a competitor's missing feature into required scope
+- **Do not** claim user research was done unless sources are listed
+- **Do not** use dark patterns (trick opt-outs, fake urgency, hidden costs)
 - **Do** ask only material unanswered questions and preserve who owns each choice
 - **Do** cover applicable empty / loading / error / success / permission-denied behavior
 - **Do** resolve critical failures and verify critical requirements before claiming readiness
-- **Do** write in simple, clear English  
+- **Do** write in simple, clear English
 
 ## Version
 
-- Current: **v0.2.1-draft** (ShipRight rename lock — still DRAFT)
+- Current: **v0.3.0-draft**
 - See [CHANGELOG.md](./CHANGELOG.md)
-
-## Feedback / open items
-
-For Altaz:
-
-- [x] Final product name locked: **ShipRight**  
-- [ ] Personal taste `.skill` files for `personal-taste/` when ready  
-- [ ] Push or merge this unreleased change set — **only when Altaz says yes**
-- [ ] Commit this change set — **only when Altaz says yes**
 
 ---
 
-*DRAFT — ShipRight — © 2026 Altaz Lavji — MIT*  
+*Public draft — ShipRight — © 2026 Altaz Lavji — MIT*
 *Context before generate. Product before pixels.*

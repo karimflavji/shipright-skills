@@ -24,7 +24,7 @@ Visual patterns below are contextual prompts, not automatic failures. Approved p
 | Tell | Why | Rewrite |
 |------|-----|---------|
 | Generic “Admin Dashboard” with 6 widgets unrelated to job | Invented product | Match screens in doc 04 only |
-| Invented nav items (Blog, Community, Pricing) inside app chrome | Scope creep | Lock nav to doc 04 |
+| Invented nav items (Blog, Community, Pricing) inside app chrome | Scope creep | Keep nav to approved doc 04 items |
 | Cards inside cards inside cards | Noise | Flatten; one grouping level |
 | Everything is equal weight | No primary action | One clear H1 + one primary CTA |
 | Sidebar + top nav + tab + chips all at once | Over-chrome | Simplify to what doc 04 needs |
