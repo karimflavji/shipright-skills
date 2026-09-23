@@ -1,10 +1,25 @@
 # Light intake — ShipRight
 
-**Status: DRAFT.** Context before generate. Product before pixels.
+**Status: Public draft.** Context before generate. Product before pixels.
 
 ## Rule
 
 Read the request and relevant existing context first. Ask zero questions when the next action is clear. Otherwise ask the smallest number that changes the next decision, usually one and no more than five in one intake round. Do not repeat intake at each skill boundary. The limit is not permission to guess a consequential answer.
+
+## Depth (pick once; state it in one line)
+
+Match the work to the request. Depth decides questions, optional research and how much review output to show.
+
+| Depth | Typical request | Questions | Optional research | Review output |
+| --- | --- | --- | --- | --- |
+| **Quick fix** | Copy, label, spacing, one state | 0–1 | Never | No gate table; one-line readiness only if asked |
+| **Focused improvement** | One screen or flow in an existing product | 0–3 | Never by default | Only the affected checks |
+| **New surface** | New screen, flow or page | 1–5 | Reference analysis if useful; ask first | Full gate at handoff only |
+| **New product** | Rough idea, new product, repositioning, feature list with no clear "why" | 1–5 | Opportunity research offered; runs only if the user agrees | Frame first; gates only at handoff |
+
+The user can change the depth. Never upgrade depth silently.
+
+## Ownership
 
 Use short examples when helpful. Offer delegation and user choice as separate options:
 
@@ -21,11 +36,12 @@ An assumption label does not grant authority to decide. Apply [operating-contrac
 
 Select only unanswered questions relevant to this task; this is not a form to complete.
 
+- **Outcome:** What changes for the user, and how would we know? Examples: invoice paid by due date, idea turned into a draft in one step.
+- **Difference:** What does the user do today instead, and why is that worse? Ask this at New product depth.
 - **Work:** Which flow, screen or decision? Examples: invite teammate, members empty state, permission recovery.
 - **User:** Whose task are we supporting? Examples: Owner, Member, customer on mobile. Do not invent a role.
-- **Outcome:** What result matters? Examples: invite pending, error recovered without lost input.
 - **Constraints:** What is approved or excluded? Examples: existing tokens, no new navigation, mobile support.
-- **Direction:** If UI direction is unresolved, what character fits? Examples: calm editorial, dense operations workspace. Do not reopen an approved direction for a small fix.
+- **Direction:** If UI direction is unresolved, what feeling fits, and which 1–2 real products or sites have that feeling? Do not reopen an approved direction for a small fix.
 
 After intake, restate the job in one sentence, distinguish proposals from approvals and proceed with the authorized work. Missing context blocks only the affected commitment; help draft what is needed without inventing facts or approved scope.
 

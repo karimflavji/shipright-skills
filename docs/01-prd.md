@@ -1,6 +1,6 @@
 # 01 — Product Requirements Document (PRD)
 
-**Status: DRAFT template — not published.**  
+**Status: Template (ShipRight v0.3.0-draft).**  
 **Pack:** ShipRight  
 **How to use:** Use relevant sections to record current product context. Skills may help draft missing sections provisionally. Mark unknowns and proposed decisions; missing files do not grant approval to invent scope.
 
@@ -20,6 +20,31 @@ What painful situation are we fixing? Who feels it today?
 **Evidence (optional but preferred):** links, support tickets, quotes with sources — never invent.
 
 <!-- write here -->
+
+## 1b. Outcome (owned)
+
+Who, what changes for them, and how we would know. One line. Mark **Approved** or **Proposed**.
+
+<!-- write here -->
+
+## 1c. Differentiating system
+
+A feature list is not a differentiating system. Name the mechanism.
+
+| Field | Content | Status |
+|-------|---------|--------|
+| Mechanism (what the product does that makes the outcome better) | <!-- --> | Proposed / Approved |
+| What this user does today instead | <!-- --> | |
+| Why that is worse for this user | <!-- --> | |
+| Evidence (sources) or UNKNOWN | <!-- --> | |
+
+## 1d. Core objects & lifecycle
+
+The 3–6 things the product manages and their key states.
+
+| Object | Key states (in order) | Owner role |
+|--------|-----------------------|------------|
+| <!-- e.g. Invoice --> | <!-- draft → sent → overdue → paid --> | <!-- --> |
 
 ## 2. Users
 
@@ -109,12 +134,21 @@ List the jobs. Detail flows later with the **product-design** skill.
 
 ## 10. Context check (for the requested commitment)
 
+- [ ] Outcome and differentiating system are Approved (or explicitly Proposed)
 - [ ] Problem and users are clear
 - [ ] Goals and non-goals are written
 - [ ] Scope is bounded
 - [ ] Relevant unknowns and their effect on readiness are explicit
 - [ ] Ready for `product-design` skill
 
+## 11. Decision log
+
+Record consequential decisions here. Status: **Proposed**, **Approved**, **Unresolved** or **Superseded**. An assistant suggestion or silence is not approval.
+
+| ID | Scope | Decision | Status | Source / date | Replaces |
+|----|-------|----------|--------|---------------|----------|
+| D1 | <!-- --> | <!-- --> | Proposed | <!-- --> | — |
+
 ---
 
-*DRAFT — docs/01-prd.md*
+*Template — docs/01-prd.md*

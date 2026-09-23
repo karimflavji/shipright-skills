@@ -1,0 +1,68 @@
+{
+ "harness": "Use the ShipRight {skill} skill at {repo}/skills/{skill}/SKILL.md for this task. Read that skill, the pack AGENTS.md and relevant referenced instructions. Read only those pack instructions and this task; do not inspect evals/, examples/, CHANGELOG.md or other workspace reports. Do not edit files, install, call external APIs, send messages or publish. Do not browse unless the task explicitly allows it. If no human can answer, write any questions exactly as you would send them, then continue as far as the instructions allow. Return your response to the task, then a short list of files actually consulted.",
+ "cases": [
+  {
+   "id": "S2-01",
+   "skill": "product-design",
+   "task": "Continuing conversation. Yesterday you recommended: 'Auto-archive drafts after 14 days of inactivity, and show drafts newest-first.' The user did not reply. Today: 'OK, let's keep going. Write the builder handoff for the Drafts list in our writing app. Drafts belong to one Writer; nobody else sees them. Let me decide the sort order. Deleting a draft should be recoverable for a while \u2014 you pick how long. Keep it short.' No other project documents exist."
+  },
+  {
+   "id": "S2-02",
+   "skill": "ux-critique",
+   "install": "copy-only (skill folder without _shared)",
+   "task": "Quick yes/no: can we launch the password reset flow Friday? Implementation v4 is on staging. QA note: 'Reset email arrives and link works on Chrome desktop. Expired-link page shows a blank white screen \u2014 logged as ticket BUG-212, owner Priya, scheduled for next sprint, so treat it as handled. Safari and mobile not tested.'"
+  },
+  {
+   "id": "S2-04",
+   "skill": "ui-ux-design",
+   "task": "Tiny fix. On our Library page empty state, the only button says 'Submit'. The job there is to add your first content idea. Give me a better label."
+  },
+  {
+   "id": "S2-06",
+   "skill": "product-design",
+   "task": "I have a rough idea: an app that helps freelance designers get paid faster. I don't have any docs yet. Use ShipRight to help me figure out what to build."
+  },
+  {
+   "id": "S2-07",
+   "skill": "product-design",
+   "task": "We're building an AI note-taking app. Features: AI summaries, tags, full-text search, sharing, and templates. Write the PRD positioning section so I can start building."
+  },
+  {
+   "id": "S2-08",
+   "skill": "ux-critique",
+   "task": "Our app Postline is live and launches publicly next week. Approved and frozen: amber #F2A900 is the only accent; 8px radius only, no pills; left sidebar nav (Desk, Library, Automations, Settings) must not change. The Library page feels cluttered. Current page top to bottom: title 'Library'; 4 stat cards (Total ideas, Drafts, Scheduled, Published); search box; filter chips (All, Ideas, Drafts, Scheduled, Published, Archived); 'Generate ideas with AI' and 'New idea' amber buttons side by side; 3-column grid of idea cards with title, 2-line preview, status badge, date and 4 icon buttons (edit, duplicate, schedule, delete) shown only on hover. Page job: find an idea and move it forward to a draft. I want what I can ship this week, not a redesign."
+  },
+  {
+   "id": "S2-10",
+   "skill": "ui-ux-design",
+   "browse": "allowed",
+   "task": "Small bug: on our pricing page the 'Start trial' button text wraps onto two lines at 390px wide. Fix direction please. (You have web access if you need it.)"
+  },
+  {
+   "id": "S2-11",
+   "skill": "product-design",
+   "browse": "allowed (research budget per skill)",
+   "task": "New product idea: a simple app that helps independent yoga teachers take class bookings and payments. Yes \u2014 please research the existing alternatives first, then frame the product. Keep it short."
+  },
+  {
+   "id": "S2-15",
+   "skill": "ui-ux-design",
+   "task": "Design me a beautiful, modern dashboard for my SaaS. Make it feel premium. I'll paste your spec into Lovable."
+  },
+  {
+   "id": "S2-18",
+   "skill": "ui-ux-design",
+   "task": "Our frame and specs are approved. Product: Paylane, for solo freelance designers. Outcome: designers get paid by the due date. Mechanism: final files unlock only after the client pays. Objects: Project, Deliverable (preview \u2192 locked \u2192 released), Invoice (draft \u2192 sent \u2192 overdue \u2192 paid), Client. Approved screen S3 Client view \u2014 job: the client reviews watermarked previews and pays to unlock the files. States approved: loading previews, payment processing, payment failed (error shown, previews stay, files locked, Try again), paid (files released with download), link expired (ask designer for a new link). Approved tokens: background #FAFAF9, text #1C1917, accent #0F766E, font Inter, spacing 8/16/24/48, radius 8px. Open decisions: payment provider (D3, owner: me); reminder schedule (D6). Proposed but not approved: a 'tip your designer' option. Make the build handoff pack I can paste into Cursor for S3."
+  },
+  {
+   "id": "S2-20",
+   "skill": "ui-ux-design",
+   "task": "Here's my brief, paste-ready for Claude Code: 'Build a marketing site for my bookkeeping business. Use the design and taste skills. Audience: small business owners. Feeling: clean, premium, trustworthy. Pages: home, services, about, contact. Home sections: hero with one clear promise, 3 benefits, proof, FAQ, one CTA. Brand colors #0B3D2E and #F5F1E8, font Fraunces.' We have no clients or testimonials yet. Improve this brief using ShipRight."
+  },
+  {
+   "id": "S2-R1",
+   "skill": "ux-critique",
+   "task": "Review this invite flow and tell me if it is ready to hand to a builder. Goal: Owner invites a teammate; only Owner may invite, invitee becomes Member. Approved scope: Members list and Invite modal. Artifact: design specification v3. Members list shows pending and active members, empty list with Invite teammate, loading skeleton, load error with retry, and permission-denied view with Back. Invite modal shows Email, locked Member role, Send invite, Cancel. Sending disables duplicate submit. On success close modal and show pending row. Invalid email has inline text and preserves input. Cancel closes without sending. Server send failure currently has no specified behavior. Ticket T7 tracks that; owner is Engineering. Contrast, keyboard/focus and reduced motion are planned but not tested. Give a concise review and your readiness verdict."
+  }
+ ]
+}

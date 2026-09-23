@@ -1,27 +1,22 @@
 ---
 name: ui-ux-design
-description: "Use this when designing or refining a screen, interaction, layout or UI specification from product context, or making a focused visual correction. Preserve approved decisions and the existing design system when present. Part of ShipRight."
+description: "Use this when designing or refining a screen, interaction, layout or UI specification from product context, setting design-system direction, analyzing reference sites, preparing build prompts for Claude Design, Figma, Cursor, Claude Code, Codex or similar tools, or making a focused visual correction. Preserve approved decisions and the existing design system when present. Part of ShipRight."
 ---
 
 # UI/UX Design Skill — ShipRight
 
-**Status: Public draft; these changes are unreleased.**
-**Pack version:** 0.2.1-draft  
+**Status: Public draft.**
+**Pack version:** 0.3.0-draft  
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
 **Anti-slop** here means hard gates that block generic AI UI — not the product name.
 
-**Dual quality bar (both matter):**
-
-1. **Taste Skill philosophy** ([taste-skill](https://github.com/Leonxlnx/taste-skill) / [tasteskill.dev](https://tasteskill.dev)) — anti-slop frontend for agents: read the brief, infer direction, tune dials, run a hard pre-flight before ship. Not generic purple SaaS.  
-2. **UI UX Pro Max depth** ([ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) — lean skill + fat references, priority rules with Avoid lists, state coverage, a11y, persist decisions. Not a thin vibe prompt.
-
-We paraphrase principles into this pack. We do **not** copy proprietary skill text verbatim.
+**Related packs (ideas, not text):** Taste Skill, Impeccable, UI UX Pro Max and Hallmark focus on visual craft. ShipRight decides what each screen must do first, then gives any of those tools exact build inputs. We paraphrase principles; we do **not** copy their text or bundle their files.
 
 ## 1. Purpose + quality bar
 
-Design screens and UI structure that match **locked docs**, cover real states, stay accessible, and avoid AI visual slop.
+Design screens and UI structure that match **approved product context**, cover real states, stay accessible, and avoid AI visual slop.
 
 ### IS
 
@@ -30,8 +25,10 @@ Design screens and UI structure that match **locked docs**, cover real states, s
 - Layout, hierarchy, spacing, type, component choices
 - State-by-state UI notes
 - Accessibility and anti-slop enforcement
-- Hard **10-gate pre-flight** before shipping UI notes or generate prompts
+- Hard **10-gate pre-flight** before a decided build handoff
 - Annotated decisions an eng or generator can follow
+- Optional reference analysis and design-system direction (Preserve or Establish)
+- A **build handoff pack** for Claude Design, Figma, Cursor, Claude Code, Codex, Antigravity or VS Code agents
 
 ### IS NOT
 
@@ -45,15 +42,19 @@ Design screens and UI structure that match **locked docs**, cover real states, s
 
 Apply [the shared operating contract](../_shared/operating-contract.md) for decision ownership, missing context, evidence statuses and readiness. Use [shared intake](../_shared/intake.md); do not repeat questions already answered.
 
-Identify the screen, its job and existing design constraints. Ask about direction only if unresolved; do not reopen approved choices for a small correction. Personal taste can guide visual defaults, but cannot override current project decisions, truthfulness or accessibility.
+State the depth, then identify the screen, its job and existing design constraints. Ask about direction only if unresolved; do not reopen approved choices for a small correction. Personal taste can guide visual defaults, but cannot override current project decisions, truthfulness or accessibility.
 
 **You decide** delegates only the named choice. **Let me decide** reserves it for the user. Blank answers stay unresolved; continue independent work.
+
+**Product before pixels:** if the screen has no job yet (for example, "design me a premium dashboard" with no product), ask for the product frame first and stop. Do not choose tokens, hex values or type scales before screen jobs exist.
+
+**Core rules if `../_shared` is unreachable (say so):** You decide = only the named choice. Let me decide = the user keeps it. Blank or silence = unresolved, never approval. Statuses: Pass · Fail · Not verified · Not applicable (with reason). A ticket, owner or plan never turns Fail into Pass; a stage-critical Fail is a Blocker. Spec ≠ screenshot ≠ implementation evidence. Readiness never authorizes deploy, publish or payment.
 
 ## 2. When to use / When NOT
 
 **Use when** you have relevant product context and need UI structure, screen craft, direction, or “make this less AI” guidance before or during generate. Help draft missing context provisionally.
 
-**Do NOT use when** the problem is “what should we build?” → **product-design**. When reviewing an existing generate for findings → **ux-critique** (you may still fix craft after critique).
+**Do NOT use when** the problem is “what should we build?” → **product-design** (Frame product). When reviewing an existing generate for findings → **ux-critique** (you may still fix craft after critique).
 
 ## 3. Context check
 
@@ -67,7 +68,7 @@ Before generating UI notes or prompts, infer direction from relevant context and
 
 - Page / screen kind (app shell, marketing, form, dashboard, empty state)
 - Audience and seriousness
-- Brand assets / tokens already locked in doc 04
+- Brand assets / tokens already approved in doc 04
 - Whether this is greenfield, preserve, or overhaul
 
 Declare a **one-line design read**, for example:
@@ -160,7 +161,7 @@ Details: `references/state-coverage.md`
 
 ### Components
 
-- Prefer design-system components named in doc 04  
+- Prefer design-system components named in doc 04. For an existing product without a documented system, use **Preserve** mode in `references/references-and-design-system.md` before proposing anything new  
 - If the brief clearly maps to a known system (Material, Polaris, Radix/shadcn, etc.), say so honestly — or label a web approximation  
 - Standardize: buttons, inputs, tables, modals, toasts, empty states  
 - Icons: prefer the approved system; evaluate meaning, accessible labels and consistency rather than rejecting a symbol solely because it is emoji.
@@ -183,7 +184,7 @@ Gradients, purple palettes, cards, blur, symmetry, emoji and a single font are v
 
 ## 11. Workflow
 
-1. [ ] Light intake (0–5 questions when needed) — or skip if docs + handoff already answer
+1. [ ] Light intake (0–5 questions when needed) — or skip if docs + handoff already answer; depth stated
 2. [ ] Load `personal-taste/` if present  
 3. [ ] Context check — what supports the requested commitment?
 4. [ ] One-line design read; dials only if useful
@@ -195,6 +196,7 @@ Gradients, purple palettes, cards, blur, symmetry, emoji and a single font are v
 10. [ ] Annotate decisions (why this layout; cite product context and any useful dials)
 11. [ ] **10-gate pre-flight** (below) — statuses supported by evidence
 12. [ ] Hand the specification to **ux-critique**, then update relevant tickets. Actual results need artifact/implementation evidence before release readiness.
+13. [ ] When the user is ready to build, compile the **build handoff pack** (`references/build-handoff.md`) and bring the built result back for critique and verification.
 
 ## 12. Output format
 
@@ -242,6 +244,8 @@ Review stage / artifact version / requested next stage: …
 
 ## 13. Pre-flight checklist (10 checks)
 
+Run this gate only when a handoff or readiness claim is requested, or at New surface / New product depth before handoff. Quick fix: no gate table.
+
 Evaluate readiness for the named specification/generation step using the shared contract. Use Pass, Fail, Not verified or justified Not applicable, with evidence and next action. A fix plan does not resolve a failed check. These checks do not certify a generated or running result.
 
 | # | Gate | Criterion |
@@ -254,10 +258,10 @@ Evaluate readiness for the named specification/generation step using the shared 
 | 6 | Navigation | Destinations follow current project decisions |
 | 7 | Accessibility specification | Relevant keyboard/focus, contrast, non-color cues and reduced-motion requirements are specified; implementation remains separately unverified |
 | 8 | Motion | Relevant motion has purpose and reduced-motion behavior; mark Not applicable when absent |
-| 9 | Content and density | Planned hierarchy works with realistic content; dials are not proof |
+| 9 | Content and density | Realistic content ranges are specified and the planned hierarchy handles them; rendered density stays Not verified until a visual artifact exists; dials are not proof |
 | 10 | Review handoff | Artifact/version, assumptions, unresolved issues and next stage are explicit |
 
-Use the shared readiness rule across all ten checks. Do not mark Ready from failed items merely listed with fix plans.
+Use the shared readiness rule across all ten checks: Re-decide, Fix first, Needs decision (D#), Not established or Ready for the named stage. Do not mark Ready from failed items merely listed with fix plans. Lead with the verdict and next action; put the table after it.
 
 ## 14. References
 
@@ -267,8 +271,10 @@ Use the shared readiness rule across all ten checks. Do not mark Ready from fail
 - `references/layout-and-hierarchy.md`
 - `references/state-coverage.md`
 - `references/anti-slop-rules.md`
+- `references/references-and-design-system.md` (optional; New surface / New product, or existing-product Preserve mode)
+- `references/build-handoff.md` (when handing approved specs to a build tool)
 - Pack docs: `../../docs/`
 
 ---
 
-*DRAFT — skills/ui-ux-design/SKILL.md — ShipRight 0.2.1-draft*
+*Public draft — skills/ui-ux-design/SKILL.md — ShipRight 0.3.0-draft*

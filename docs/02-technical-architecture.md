@@ -1,6 +1,6 @@
 # 02 — Technical Architecture Document
 
-**Status: DRAFT template — not published.**  
+**Status: Template (ShipRight v0.3.0-draft).**  
 **Pack:** ShipRight  
 **How to use:** Describe systems and constraints so AI does not invent APIs, stacks, or data shapes. Product designers can fill the non-code sections; eng should review stack and data flow.
 
@@ -38,7 +38,7 @@ List the main pieces (boxes). Keep it simple.
 -->
 ```
 
-## 3. Stack choices (locked)
+## 3. Stack choices (decided or UNKNOWN)
 
 Only list what is already chosen. Mark unknowns. Do not let AI pick a random stack.
 
@@ -104,11 +104,11 @@ What eng will not build now:
 ## 10. Ready check
 
 - [ ] Systems map exists
-- [ ] Stack is locked or marked UNKNOWN
+- [ ] Stack is decided or marked UNKNOWN
 - [ ] Data flow for the feature is written
 - [ ] Integrations and failure behavior listed
 - [ ] Ready to inform `product-design` and `04` Frontend Spec
 
 ---
 
-*DRAFT — docs/02-technical-architecture.md*
+*Template — docs/02-technical-architecture.md*

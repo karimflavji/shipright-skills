@@ -1,46 +1,48 @@
 # Architecture — ShipRight
 
-**Status: Public draft; this change set is unreleased.**
+**Status: Public draft (v0.3.0-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 This file is a map of the pack. It is not a tutorial and not application code architecture.
 
 ## What this pack is
 
-A small system that forces **context before generate** and **product before pixels**. Use relevant existing context and the five templates where needed, then three agent skills decide product behavior, craft UI/UX, and critique output with evidence-based checks. The goal is to stop vibe-coding tools from inventing random UI and flows.
+A small system that forces **context before generate** and **product before pixels**. Three agent skills frame the product, decide behavior, craft UI specifications, write build inputs for AI design and coding tools, and critique what gets built with evidence-based checks. Five optional templates record context and decisions. The goal is to stop AI tools from inventing random UI and flows.
 
-**Unique gap vs Taste / Hallmark / Pro Max:** full PRODUCT process (5 docs + product-design + ui-ux-design + ux-critique), not UI-only.
+**ShipRight's job next to visual-craft packs (Taste Skill, Hallmark, UI UX Pro Max, Impeccable):** a multi-screen product frame (outcome → differentiating system → objects → journey → screen jobs), explicit decision ownership, and stage-bounded readiness, in plain Markdown with no install tooling. Pair with those packs; do not bundle them.
 
-**Quality bar:** Taste Skill philosophy (brief inference, dials, pre-flight, anti purple SaaS) + UI UX Pro Max depth (references, Avoid lists, states, a11y) + Hallmark-style countable gates (paraphrased ideas, not copied text).
-
-**Anti-slop** = capability language (gates that block generic AI UI). **ShipRight** = locked product name.
+**Anti-slop** = capability language (checks that block generic AI UI). **ShipRight** = product name.
 
 ## Folder map
 
 ```text
 pack/
-├── README.md                 # Humans: pitch, gap, install, demo, boundaries
+├── README.md                 # Humans: pitch, how it works, install, related packs
 ├── LICENSE                   # MIT, Copyright 2026 Altaz Lavji
 ├── CHANGELOG.md              # Version history
 ├── architecture.md           # This file — pack map
-├── AGENTS.md                 # Rules for AI working in this repo
+├── AGENTS.md                 # Rules for AI editing this pack (not for end-user apps)
 ├── skills.md                 # Catalog of skills + workflow order
-├── docs/                     # BEFORE-BUILD templates (mandatory context)
-│   ├── 01-prd.md
+├── docs/                     # Optional templates for recording context and decisions
+│   ├── 01-prd.md             # Outcome, differentiating system, objects, scope, decision log
 │   ├── 02-technical-architecture.md
 │   ├── 03-security-and-access.md
-│   ├── 04-frontend-spec.md
+│   ├── 04-frontend-spec.md   # Screen jobs, components, design-system direction
 │   └── 05-feature-ticket-list.md
-├── personal-taste/           # Optional overlays (pending Altaz .skill files)
-│   └── README.md             # Drop preference files here; do not block drafts
+├── personal-taste/           # Optional preference overlays
 ├── skills/
 │   ├── _shared/
-│   │   ├── intake.md         # Light 0–5 Q intake pattern (DRY)
-│   │   └── operating-contract.md # Authority, evidence and readiness
-│   ├── product-design/       # What the product should DO (+ 8-check decision gate)
-│   ├── ux-critique/          # Review for slop (+ 10-gate ship audit)
-│   └── ui-ux-design/         # How it should LOOK (+ dials + 10-gate pre-flight)
-└── examples/                 # Teaching samples + before/after demo
+│   │   ├── intake.md             # Depth + 0–5 questions + decision ownership
+│   │   └── operating-contract.md # Decision status, evidence, readiness, output shape
+│   ├── product-design/       # Frame product; what the product should DO (+ 8-check gate)
+│   │   └── references/       # states-and-flows, decision-checklist, opportunity-research
+│   ├── ui-ux-design/         # How screens LOOK and behave; build handoff (+ 10-check pre-flight)
+│   │   └── references/       # layout, state-coverage, anti-slop, references-and-design-system, build-handoff
+│   └── ux-critique/          # Review, product audit, verification (+ 10-check audit)
+│       └── references/       # slop-tells, severity-rubric, bounded-verification
+├── evals/                    # Focused behavior trials + source checks
+└── examples/
+    ├── idea-to-screen-jobs/  # Rough idea → frame → screen jobs → build pack → review
     └── sample-saas-onboarding/
 ```
 
@@ -48,83 +50,90 @@ pack/
 
 | Path | Owns | Does not own |
 |------|------|--------------|
-| `docs/` | Locked product context (requirements, systems, security, frontend, tickets) | Runtime code |
-| `skills/_shared/` | Shared intake, decision ownership and evidence contract | Skill-specific craft rules |
-| `skills/product-design/` | Flows, states, decisions, risks, eng handoff, decision gate | Pixel styling, fake research |
-| `skills/ui-ux-design/` | Layout, dials, hierarchy, components, a11y, anti-slop, 10-gate pre-flight | Product strategy, pricing |
-| `skills/ux-critique/` | Findings, severity, rewrite asks, 10-gate ship audit | Inventing new product scope |
+| `docs/` | Recorded context and decisions (requirements, systems, security, frontend, tickets) | Runtime code; approval by itself |
+| `skills/_shared/` | Depth, intake, decision ownership, evidence and readiness | Skill-specific craft rules |
+| `skills/product-design/` | Product frame, flows, states, decisions, risks, optional opportunity research, decision gate | Pixel styling, fake research |
+| `skills/ui-ux-design/` | Layout, hierarchy, components, a11y, references, design-system direction, build handoff pack, pre-flight | Product strategy, pricing |
+| `skills/ux-critique/` | Findings, severity, product audit, bounded verification, audit | Inventing new product scope |
 | `personal-taste/` | Optional preference overlays (merge, don’t rewrite cores) | Core skill bodies |
 | `examples/` | Teaching samples | Source of truth for a real product |
 
 ## Progressive loading (how agents should read)
 
 1. **Metadata** — skill `name` + `description` in each `SKILL.md` frontmatter (choose the right skill)
-2. **Context and authority** — current request, relevant project sources and `skills/_shared/operating-contract.md`; then shared intake only if needed
+2. **Context and authority** — current request, relevant project sources and `skills/_shared/operating-contract.md`; then shared intake (state the depth)
 3. **Instructions** — full `SKILL.md` body when the skill activates
 4. **Personal taste** — if `personal-taste/` has files, load for ui-ux defaults
-5. **References** — files under `skills/*/references/` only when needed for the current task
+5. **References** — files under `skills/*/references/` only when the depth or task calls for them
 6. **Docs** — relevant context for the commitment; help draft missing sections without inventing approvals
-7. **Gates** — run the skill’s numbered evidence-based gate before claiming done
+7. **Gates** — run the skill's numbered gate at handoff or when readiness is requested
 
 Do not load every reference on every turn. Keep the skill body lean; put depth in `references/`.
 
-## Skill ownership diagram (simple)
+## Skill flow (simple)
 
 ```text
-relevant context (approved decisions preserved)
+relevant context (approved decisions preserved) + depth
       │
       ▼
-light intake if needed (delegation and user choice are distinct)
+product-design  →  Frame product (new product / rough idea)  →  user approves frame
+      │            (optional opportunity research, only if the user agrees)
+      ▼
+product-design  →  flows, states  →  8-check DECISION GATE at handoff
       │
       ▼
-product-design  →  decisions, flows, states  →  8-check DECISION GATE
+ui-ux-design    →  screen specs (+ optional references, design-system direction)  →  10-check PRE-FLIGHT
       │
       ▼
-ui-ux-design    →  design read + dials + layout  →  10-gate PRE-FLIGHT
-      │            (+ personal-taste overlays if present)
-      ▼
-ux-critique     →  spec findings + rewrite asks → 10-check SPEC AUDIT
+ux-critique     →  specification review
       │
       ▼
-docs/05 tickets → code / generate UI → critique actual result
+ui-ux-design    →  BUILD HANDOFF PACK (rules block + one prompt per screen)
+      │
+      ▼
+your build tool →  screens / code
+      │
+      ▼
+ux-critique     →  critique + bounded verification of the actual result (max 2 fix passes)
 ```
 
 If critique finds a **wrong decision** (not just a visual issue), route back to **product-design**, not only to ui-ux-design.
 
 ## Countable gates summary
 
-| Skill | Gate name | Checks |
-|-------|-----------|--------|
-| product-design | Decision gate | 8 |
-| ui-ux-design | Pre-flight | 10 |
-| ux-critique | Ship audit | 10 |
+| Skill | Gate name | Checks | When |
+|-------|-----------|--------|------|
+| product-design | Decision gate | 8 | Product handoff |
+| ui-ux-design | Pre-flight | 10 | Decided build handoff |
+| ux-critique | Audit | 10 | Named review stage |
 
 ## Hard boundaries
 
 **IS**
 
-- Product decisions with a clear trail
-- Light guided intake (never a novel questionnaire)
+- Product frame and decisions with a clear trail
+- Light guided intake sized by depth (never a novel questionnaire)
 - State coverage (empty, loading, error, success, denied, partial)
-- UI/UX craft grounded in docs + dials + pre-flight
-- Honest critique with severity
+- UI/UX specs and build inputs grounded in approved decisions
+- Honest critique with severity and evidence
 - Evidence-based checks with stable IDs
 
 **IS NOT**
 
 - Treating proposed scope, roles or screens as approved requirements
+- Treating a competitor's missing feature as demand or scope
 - Fake user interviews or fake metrics
 - Dark patterns
 - Legal, medical, or compliance advice as if it were certified
+- A coding-agent framework, CLI, hooks or detector tooling
 - Three divergent copies of the same skill for Claude / Cursor / Codex (one `skills/` source of truth)
-- Blocking drafts on missing `personal-taste/` files
-- UI-only taste pack without product docs (that is Taste/Hallmark territory — we complement them)
+- A bundle of other skill packs
 
 ## How to extend safely
 
 1. Add depth in `references/`, not by growing `SKILL.md` past a readable length
-2. Keep intake DRY via `skills/_shared/intake.md` when possible
-3. Put Altaz preference files in `personal-taste/` — do not fork core skills
+2. Keep intake DRY via `skills/_shared/intake.md`
+3. Put preference files in `personal-taste/` — do not fork core skills
 4. Update `skills.md` catalog and `CHANGELOG.md`
 5. Keep folder names `lowercase-with-hyphens` matching frontmatter `name`
 6. Do not duplicate skill text into tool-specific folders — use copy or symlink from `skills/`
@@ -132,12 +141,11 @@ If critique finds a **wrong decision** (not just a visual issue), route back to 
 
 ## What rarely changes
 
-- Workflow order: context → light intake if needed → product-design → ui-ux-design → specification critique → tickets → code; review the actual result before release readiness
+- Method order: outcome → differentiating system → objects/states → journey → screen jobs → honest critique → preserved decisions
 - No invented facts, validation or approval; unknowns block only affected commitments
 - Split of ownership across the three skills
-- Dual quality bar: Taste Skill philosophy + Pro Max depth + countable gates
 - Tagline: Context before generate. Product before pixels.
 
 ---
 
-*DRAFT — architecture.md — ShipRight*
+*Public draft — architecture.md — ShipRight*

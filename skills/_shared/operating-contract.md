@@ -1,6 +1,6 @@
 # Decision ownership and review evidence — ShipRight
 
-**Status: DRAFT.** Apply this contract in all three skills. It defines how existing checks are judged; it does not add another workflow or approval round.
+**Status: Public draft.** Apply this contract in all three skills. It defines how existing checks are judged; it does not add another workflow or approval round.
 
 ## Product intent and authority
 
@@ -16,7 +16,7 @@ Within user-owned product decisions, use:
 
 This order does not override platform instructions or change technical facts. Surface conflicts with observed constraints; do not silently replace the user's intent with an older document.
 
-Record consequential decisions in the existing PRD or decision log: ID, scope, statement, status, source/date, affected artifacts and replaced decision. Use **Proposed**, **Approved**, **Unresolved** or **Superseded**. Approval requires an explicit user decision or prior delegation covering that choice. An assistant suggestion or silence is not approval. Keep factual evidence separate from decision status.
+Record consequential decisions in the project's decision log (the PRD template has one in section 11) or an equivalent existing record: ID, scope, statement, status, source/date, affected artifacts and replaced decision. Use **Proposed**, **Approved**, **Unresolved** or **Superseded**. Approval requires an explicit user decision or prior delegation covering that choice. An assistant suggestion or silence is not approval. Keep factual evidence separate from decision status.
 
 When corrected, mark the old decision Superseded and update affected references. Invalidate only evidence that depends on the change. At an existing handoff, include current sources/versions, decisions, unresolved dependencies, authorized actions and next task; no extra document is required.
 
@@ -41,22 +41,34 @@ For each relevant criterion, record **Status**, **Evidence** and **Next action**
 | Status | Meaning |
 | --- | --- |
 | Pass | Sufficient evidence meets this criterion at this stage. |
-| Fail | Evidence shows a requirement is unmet. A missing required specification behavior is Fail. |
+| Fail | Evidence shows a requirement is unmet. A missing required specification behavior is Fail, including when it is missing because a user-owned decision is still open; name that decision in Next action. |
 | Not verified | Evidence is unavailable or insufficient. This is not Pass and does not prove a defect. |
 | Not applicable | The criterion is outside this task's behavior; give a reason. Do not invent functionality to make it apply. |
 
 Logging a finding, naming an owner, writing a fix plan or deferring a ticket never changes Fail to Pass. Deferred noncritical failures remain Fail with impact and explicit disposition. A concrete rewrite ask does not resolve the underlying defect.
+
+**Severity follows criticality.** A Fail on a stage-critical requirement is a **Blocker** for that stage. Use Major or Polish only for noncritical failures. Do not write "Major, but critical".
 
 ## One readiness rule
 
 Identify stage-critical requirements before scoring, based on the user's task and affected access, cost, data and supported users/devices. Do not downgrade criticality merely to obtain a pass. Use the same rule across all checks, including product checks 7–8 and critique checks 7–10:
 
 - **Re-decide** the affected product choice when the premise is wrong.
-- **Fix first** if a stage-critical requirement fails or a Blocker remains unresolved.
-- **Not established** if a stage-critical requirement is Not verified and no known critical failure already requires Fix first.
+- **Fix first** if a stage-critical requirement fails or a Blocker remains unresolved, and at least one of those failures is not caused only by an open user decision.
+- **Needs decision ([decision IDs])** if every critical failure or critical unknown traces only to decisions the user reserved or has not answered. Name each decision and its owner. Do not describe the user's pending choice as a defect.
+- **Not established** if a stage-critical requirement is Not verified for another reason (missing evidence) and nothing above applies.
 - **Ready for [named next stage]** only when all stage-critical requirements Pass or are justifiably Not applicable, no Blocker remains, and noncritical failures/unknowns have a stated disposition. A known failure takes precedence over missing evidence.
 
+Use the first verdict that applies, in the order above.
+
 A screenshot cannot certify release. A specification can be ready for a builder while runtime checks remain explicitly Not verified and scheduled for implementation review. Do not label a list of planned checks a completed runtime audit.
+
+## Output shape
+
+- Lead with the verdict and the next action in 120 words or fewer. Put tables after that.
+- Show gate tables only when a handoff or readiness claim is requested, or at New surface / New product depth before handoff. Quick fix: no gate table.
+- When a project document exists, put long detail there (PRD, frontend spec, tickets) instead of repeating it in chat.
+- In a builder handoff, list Proposed items separately under **Needs approval before build**. A builder must not treat them as approved.
 
 ## Authorization and bounded execution
 

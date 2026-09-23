@@ -1,8 +1,8 @@
 # 04 — Frontend Specification Document
 
-**Status: DRAFT template — not published.**  
+**Status: Template (ShipRight v0.3.0-draft).**  
 **Pack:** ShipRight  
-**How to use:** Lock screens, navigation, components, and states before generating UI. The **ui-ux-design** skill must follow this doc. Skills may help draft a provisional screen specification. Do not treat proposed screens as approved; unresolved consequential decisions block the affected commitment.
+**How to use:** Record approved screens, navigation, components, states and design direction before generating UI. The **ui-ux-design** skill follows approved entries here and compiles them into a build handoff pack. Skills may help draft a provisional screen specification. Do not treat proposed screens as approved; unresolved consequential decisions block the affected commitment.
 
 **Product / feature name:** <!-- write here -->  
 **Author:** <!-- write here -->  
@@ -20,7 +20,7 @@ What the frontend must support for this release (one short paragraph).
 
 ## 2. Navigation & information architecture
 
-### Primary nav (locked)
+### Primary nav (approved)
 
 List only real destinations. Do not let AI invent extra nav items.
 
@@ -40,10 +40,10 @@ List only real destinations. Do not let AI invent extra nav items.
 
 ## 3. Screen inventory
 
-| Screen ID | Name | Job supported | Priority |
-|-----------|------|---------------|----------|
-| S1 | <!-- --> | J? | P0 |
-| S2 | <!-- --> | J? | |
+| Screen ID | Name | Screen job (one sentence) | Objects shown | PRD job | Priority |
+|-----------|------|---------------------------|---------------|---------|----------|
+| S1 | <!-- --> | <!-- what the user gets done here --> | <!-- from PRD 1d --> | J? | P0 |
+| S2 | <!-- --> | <!-- --> | <!-- --> | J? | |
 
 ### Per-screen brief (copy one block per screen)
 
@@ -75,7 +75,12 @@ Reuse existing design-system components when listed:
 
 <!-- write here: link or name of design system / Figma library -->
 
-## 5. Design tokens pointers
+## 5. Design tokens and direction
+
+Mode: [ ] **Preserve** (existing product — record what is actually in use) [ ] **Establish** (new product — small Proposed set until approved). See `skills/ui-ux-design/references/references-and-design-system.md`.
+
+- **Feeling (one line):** <!-- e.g. calm, precise, trustworthy -->
+- **Reference products/sites (1–2, with what to borrow):** <!-- write here -->
 
 Do not invent a new visual language if one exists.
 
@@ -128,12 +133,13 @@ Do not invent a new visual language if one exists.
 
 ## 11. Ready check
 
-- [ ] Nav locked (no mystery items)
+- [ ] Nav approved (no mystery items)
 - [ ] Screen inventory complete for P0
 - [ ] States checked per P0 screen
 - [ ] Tokens / design system pointed to (or UNKNOWN)
-- [ ] Ready for **ui-ux-design** skill — then **ux-critique**
+- [ ] Every P0 screen has a one-sentence screen job
+- [ ] Ready for **ui-ux-design** skill — then **ux-critique** — then the build handoff pack
 
 ---
 
-*DRAFT — docs/04-frontend-spec.md*
+*Template — docs/04-frontend-spec.md*

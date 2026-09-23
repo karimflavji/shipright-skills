@@ -4,10 +4,42 @@ All notable changes to this pack will be documented in this file.
 
 Format based on Keep a Changelog. Versioning follows SemVer.
 
-**Status:** Public draft; current control/evidence changes are unreleased. Historical publication notes below describe their time.
+**Status:** Public draft. Historical notes below describe their time.
 **Product name:** **ShipRight** (locked).
 
-## [Unreleased] — decision ownership and review evidence
+## [0.3.0-draft] — 2026-09-23 — idea to build handoff
+
+### Added
+
+- **Frame product** mode in product-design: outcome → differentiating system → core objects & lifecycle → journey → screen jobs, before flows or gates. A feature list is challenged until there is a real mechanism.
+- **Depth** in shared intake (Quick fix, Focused improvement, New surface, New product). Depth sizes questions, optional research and review output.
+- Optional references, loaded only when depth or task calls for them:
+  - `product-design/references/opportunity-research.md` — sourced, labeled, never scope by itself
+  - `ui-ux-design/references/references-and-design-system.md` — reference borrow/reject and design-system direction (Preserve or Establish)
+  - `ui-ux-design/references/build-handoff.md` — rules block + one prompt per screen for Claude Design, Figma, Cursor, Claude Code, Codex, Antigravity and VS Code agents
+  - `ux-critique/references/bounded-verification.md` — desktop + mobile screenshot check, max 2 fix passes
+- PRD sections for outcome, differentiating system, core objects and a decision log; screen-job and objects columns in the frontend spec.
+- Optional product-audit block in ux-critique (top 3 problems, what's working, root cause, patch or rethink).
+- Example `examples/idea-to-screen-jobs/`.
+- Short inline core rules in each SKILL.md for installs where `_shared` is missing.
+
+### Changed
+
+- A failure on a stage-critical requirement is always a **Blocker** (no more "Major, but critical").
+- New verdict **Needs decision (D#)** when only the user's own open decisions block readiness.
+- Answers lead with the verdict and next action; gate tables appear only at handoff or when readiness is requested.
+- Builder handoffs list Proposed items under "Needs approval before build".
+- Install instructions link `_shared` alongside the skills; AGENTS.md is no longer copied into apps.
+- Positioning: precise "Related packs" table (Taste Skill, Hallmark, UI UX Pro Max, Impeccable) instead of "UI-only packs skip product process".
+- "Locked/mandatory" template wording replaced with "approved/recorded"; missing docs never block drafting.
+- Personal-taste folder made generic for public use.
+- Sample example findings relabeled as Blockers; check attribution corrected.
+
+### Validation
+
+- See `evals/change-set-2/`. Single fresh-context runs; instruction-following evidence, not a reliability rate or runtime test.
+
+## [0.2.2-draft] — 2026-09-23 — decision ownership and review evidence (PR #1, merged as a6ae2a1)
 
 ### Changed
 
@@ -40,7 +72,7 @@ Format based on Keep a Changelog. Versioning follows SemVer.
 
 ### Added
 
-- **Working brand: ProductCraft** (provisional at the time; later locked as **ShipRight** — see Unreleased)
+- **Working brand: ProductCraft** (provisional at the time; later locked as **ShipRight** — see 0.2.1-draft)
 - Tagline everywhere it helps: **Context before generate. Product before pixels.**
 - Countable Pass/Fail gates (not vibes):
   - product-design: **8-check decision gate**

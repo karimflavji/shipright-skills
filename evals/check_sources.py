@@ -57,9 +57,41 @@ for path in sorted((ROOT / "skills").rglob("*.md")):
         if not resolved.is_relative_to(ROOT) or not resolved.exists():
             errors.append(f"{path.relative_to(ROOT)}: unresolved pack reference {target}")
 
+# Change set 2: inline core rules, optional references, verdict vocabulary,
+# and no stale publication status outside history files.
+optional_refs = {
+    "product-design": ["opportunity-research.md"],
+    "ui-ux-design": ["references-and-design-system.md", "build-handoff.md"],
+    "ux-critique": ["bounded-verification.md"],
+}
+for name, refs in optional_refs.items():
+    source = (ROOT / "skills" / name / "SKILL.md").read_text()
+    if "Core rules if `../_shared` is unreachable" not in source:
+        errors.append(f"{name}: missing inline core rules")
+    for ref in refs:
+        if f"references/{ref}" not in source:
+            errors.append(f"{name}: SKILL.md does not point to references/{ref}")
+
+contract = (ROOT / "skills" / "_shared" / "operating-contract.md").read_text()
+for phrase in ("Needs decision", "Severity follows criticality", "## Output shape"):
+    if phrase not in contract:
+        errors.append(f"operating-contract.md: missing '{phrase}'")
+if "## Depth" not in (ROOT / "skills" / "_shared" / "intake.md").read_text():
+    errors.append("intake.md: missing depth selector")
+
+stale = re.compile(r"unreleased|do not publish, do not commit|Lock context|mandatory context|locked docs", re.I)
+for path in sorted(ROOT.rglob("*.md")):
+    rel = path.relative_to(ROOT)
+    if rel.parts[0] in ("evals", ".git") or rel.name == "CHANGELOG.md":
+        continue
+    for lineno, line in enumerate(path.read_text().splitlines(), 1):
+        if stale.search(line):
+            errors.append(f"{rel}:{lineno}: stale status or 'lock' wording")
+
 if errors:
     print("FAIL\n" + "\n".join(errors))
     sys.exit(1)
 print(f"PASS: 3 skill metadata records; stable 8/10/10 check IDs; "
-      f"{len(references)} local references; shared intake/contract links.")
+      f"{len(references)} local references; shared intake/contract links; "
+      f"inline core rules; 4 optional references linked; no stale status wording.")
 print("Canonical source check only; client installs and behavior need separate evidence.")
