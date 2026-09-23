@@ -21,7 +21,7 @@ The pack **merges** these as overlays. It does **not** rewrite the three core sk
    - Visual direction (calm vs bold, density, motion)
    - Banned patterns Altaz cares about
    - Brand / type / spacing habits
-3. Core refuse gates, docs workflow, and countable Pass/Fail gates still win over taste when they conflict (no inventing product scope).
+3. Current explicit project decisions and the shared operating contract take precedence. Taste cannot authorize scope, fabricate evidence or waive usable access to critical controls.
 4. If this folder is empty (only this README), ignore it and use pack defaults.
 
 ## Suggested drop names (optional)
