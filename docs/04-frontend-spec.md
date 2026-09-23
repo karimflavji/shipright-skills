@@ -2,7 +2,7 @@
 
 **Status: DRAFT template — not published.**  
 **Pack:** ShipRight  
-**How to use:** Lock screens, navigation, components, and states before generating UI. The **ui-ux-design** skill must follow this doc. If blank, skills must refuse to invent screens.
+**How to use:** Lock screens, navigation, components, and states before generating UI. The **ui-ux-design** skill must follow this doc. Skills may help draft a provisional screen specification. Do not treat proposed screens as approved; unresolved consequential decisions block the affected commitment.
 
 **Product / feature name:** <!-- write here -->  
 **Author:** <!-- write here -->  
@@ -87,7 +87,7 @@ Do not invent a new visual language if one exists.
 | Radius / elevation | <!-- --> | <!-- --> |
 | Motion | <!-- --> | Prefer reduced-motion safe |
 
-**Anti-slop lock:** [ ] No random gradients / glassmorphism unless brand requires it and is documented here.
+**Integrity and craft:** [ ] No fabricated proof or inaccessible critical controls. Evaluate visual choices against approved brand and task requirements.
 
 ## 6. Copy & content rules
 
@@ -104,7 +104,7 @@ Do not invent a new visual language if one exists.
 - [ ] No hover-only critical actions
 - [ ] Touch targets ~44×44 where relevant
 - [ ] Meaning not by color alone
-- [ ] Icons: SVG/system icons — not emoji-as-icons
+- [ ] Icons: meaningful, consistent and accessibly labeled
 
 ## 8. Responsive / breakpoints
 

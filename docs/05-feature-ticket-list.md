@@ -75,7 +75,7 @@ T1 form → T2 API wire → T3 success/empty states
 
 ## 5. Critique follow-ups
 
-After **ux-critique**, paste blockers/majors here as tickets or AC updates.
+After **ux-critique**, record findings as tickets or AC updates. Recording a ticket does not resolve a failed check. Close it only with evidence from the corrected artifact/version.
 
 | Finding ID | Severity | Becomes ticket / AC change | Done? |
 |------------|----------|----------------------------|-------|
@@ -85,8 +85,8 @@ After **ux-critique**, paste blockers/majors here as tickets or AC updates.
 
 - [ ] All P0 tickets done
 - [ ] Docs 01–04 still accurate (or updated)
-- [ ] Critique blockers resolved
-- [ ] No known AI-slop tells remaining on P0 screens
+- [ ] Critical requirements verified and critique blockers resolved with evidence
+- [ ] Noncritical failures/unknowns have explicit disposition; visual preferences do not override integrity
 - [ ] Ready to ship / release checklist owned by team
 
 ## 7. Ready check (before coding)
