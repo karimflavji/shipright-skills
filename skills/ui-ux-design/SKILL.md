@@ -1,11 +1,11 @@
 ---
 name: ui-ux-design
-description: "Use this when you need high-quality anti-slop UI/UX craft against locked product docs — brief inference, design dials (variance / motion / density), layout, hierarchy, components, state coverage, accessibility, and a hard 10-gate pre-flight before shipping UI. Works with Claude Design, Figma AI, Google Stitch, Cursor, Codex, or similar. Trigger phrases: design the screen, UI spec, layout, hierarchy, make it less AI, design dials, pre-flight, not purple SaaS. Dual quality bar: Taste Skill philosophy + UI UX Pro Max depth. Light intake (3–5 questions, examples + you decide / let me decide). If personal-taste/ has files, load and prefer those preferences. Refuse to invent product scope when docs/01–05 are missing. Not for product strategy alone (use product-design) or post-hoc critique only (use ux-critique). Part of ShipRight: context before generate, product before pixels."
+description: "Use this when designing or refining a screen, interaction, layout or UI specification from product context, or making a focused visual correction. Preserve approved decisions and the existing design system when present. Part of ShipRight."
 ---
 
 # UI/UX Design Skill — ShipRight
 
-**Status: DRAFT — not published.**  
+**Status: Public draft; these changes are unreleased.**
 **Pack version:** 0.2.1-draft  
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
@@ -41,65 +41,29 @@ Design screens and UI structure that match **locked docs**, cover real states, s
 - A huge design questionnaire
 - Logo / illustration art direction unless doc 04 asks for it
 
-## INTAKE (do this first — keep it light)
+## INTAKE
 
-Do **not** dump a long brand interview. Gather idea context in **only 3–5 questions**, then finalize.
+Apply [the shared operating contract](../_shared/operating-contract.md) for decision ownership, missing context, evidence statuses and readiness. Use [shared intake](../_shared/intake.md); do not repeat questions already answered.
 
-Shared pattern: `../_shared/intake.md`
+Identify the screen, its job and existing design constraints. Ask about direction only if unresolved; do not reopen approved choices for a small correction. Personal taste can guide visual defaults, but cannot override current project decisions, truthfulness or accessibility.
 
-**you decide / let me decide:** If the user picks this, choose from docs / personal-taste, label `ASSUMPTION`, state the choice in one line, continue.
-
-### Ask these (pick 3–5; skip any docs already answer)
-
-**1. Which screen or surface?**  
-Examples: “Onboarding checklist”, “Invite modal”, “Projects empty state”, “Marketing hero only”.  
-Or: **you decide / let me decide** from `docs/04-frontend-spec.md`.
-
-**2. What job must this screen finish?**  
-Examples: “Send invite”, “Create first project”, “Understand pricing and start”, “Recover from save error”.  
-Or: **you decide / let me decide** from PRD + product-design handoff.
-
-**3. How should it feel? (sets dials)**  
-Examples: “Calm / editorial”, “Clear SaaS tool”, “Premium marketing”, “Dense dashboard”, “Trust-first / serious”.  
-Or: **you decide / let me decide** (agent infers dials — see § Design dials).
-
-**4. Any must-match or must-avoid?**  
-Examples: “Use tokens in doc 04”, “No new nav”, “Mobile-first”, “No gradients”, “Match existing app shell”.  
-Or: **you decide / let me decide**.
-
-**5. (Optional) Existing UI or redesign?**  
-Examples: “Greenfield”, “Preserve brand, fix layout”, “Full visual overhaul but keep URLs/labels”.  
-Or: **you decide / let me decide**.
-
-After answers: write a **one-line design read**, set the three dials, then refuse gate + workflow. Do not keep interviewing.
-
-### Personal taste overlays
-
-If `personal-taste/` has files (besides its README), **load them** and **prefer those preferences over pack defaults** for visual direction, bans, and dial baselines — unless the user overrides in intake. Core refuse gates and docs still win when they conflict.
+**You decide** delegates only the named choice. **Let me decide** reserves it for the user. Blank answers stay unresolved; continue independent work.
 
 ## 2. When to use / When NOT
 
-**Use when** docs (especially 01 and 04) exist and you need UI structure, screen craft, dial-tuned direction, or “make this less AI” guidance before or during generate.
+**Use when** you have relevant product context and need UI structure, screen craft, direction, or “make this less AI” guidance before or during generate. Help draft missing context provisionally.
 
 **Do NOT use when** the problem is “what should we build?” → **product-design**. When reviewing an existing generate for findings → **ux-critique** (you may still fix craft after critique).
 
-## 3. Refuse gate
+## 3. Context check
 
-Required before inventing any screen:
+Use current product scope, screen jobs, access rules and implementation constraints from available project context. Docs 01–04 are templates for that context; 05 records tickets when ready.
 
-| Doc | Why |
-|-----|-----|
-| `docs/01-prd.md` | Jobs and non-goals |
-| `docs/04-frontend-spec.md` | Screens, nav, tokens |
-| `docs/03-security-and-access.md` | Denied states and role-gated UI |
-| `docs/02-technical-architecture.md` | Constraints that affect UI (devices, offline) |
-| `docs/05-feature-ticket-list.md` | Optional at design time; update after |
-
-If missing: **refuse**, list gaps, point to `docs/`. You may help fill templates from light intake; label `ASSUMPTION`.
+Help draft missing sections provisionally. Do not invent approved screens or implementation capabilities. Block only the affected commitment when an unknown changes scope, access, cost or recovery; continue independent work. An approved user correction can supersede an older document.
 
 ## 4. Brief inference (don’t over-ask)
 
-Before generating UI notes or prompts, **read the room** from docs + the 3–5 intake answers:
+Before generating UI notes or prompts, infer direction from relevant context and any needed intake answers:
 
 - Page / screen kind (app shell, marketing, form, dashboard, empty state)
 - Audience and seriousness
@@ -114,7 +78,7 @@ Do **not** default to generic purple SaaS, three equal feature cards, or mesh bl
 
 ## 5. Design dials (simple English)
 
-After the design read, set three dials from **1–10**. Every layout/motion/spacing choice should respect them. Defaults below unless intake, docs, or `personal-taste/` say otherwise.
+The three **1–10** dials are optional communication aids. Use them only when they clarify an unresolved design choice; they are not evidence of quality or prerequisites for a focused correction. Existing product decisions take precedence over these starter defaults.
 
 | Dial | Meaning | Low (1–3) | Mid (4–6) | High (7–10) |
 |------|---------|-----------|-----------|-------------|
@@ -134,7 +98,7 @@ After the design read, set three dials from **1–10**. Every layout/motion/spac
 
 **Rules of thumb:**
 
-- Say the three numbers and one line of why each.
+- If using dials, explain the choices briefly; otherwise use a plain-language direction.
 - If MOTION is high, the UI notes must describe real motion — or lower the dial.
 - Always respect `prefers-reduced-motion`.
 - Do not ask the user to edit skill files to change dials — override in conversation.
@@ -142,14 +106,14 @@ After the design read, set three dials from **1–10**. Every layout/motion/spac
 ## 6. Design principles (simple English)
 
 1. **One job per screen** — Match a PRD job; do not add side quests.  
-2. **One primary action** — Users should not guess the next click.  
+2. **Clear action hierarchy** — Users should understand the next action for their current task.
 3. **Hierarchy before decoration** — Type and spacing beat gradients.  
-4. **States are part of the design** — Empty/loading/error/success/denied are mandatory for interactive screens.  
-5. **Truthful UI** — No fake data, fake logos, fake urgency.  
+4. **States are part of the design** — Specify relevant empty/loading/error/success/denied behavior; explain genuine non-applicability.
+5. **Truthful UI** — No fabricated proof or fake urgency; synthetic fixture data must be labeled.
 6. **Consistency** — Reuse components and tokens from doc 04 (one accent, one radius system, one page theme).  
 7. **Accessible by default** — Keyboard, focus, contrast, not color-only.  
 8. **Respect product type** — Banking ≠ neon startup template; follow industry seriousness implied by PRD.  
-9. **Not generic purple SaaS** — Neutral bases + one real accent from brand/docs; avoid mesh blobs and templated three-card rows unless doc 04 asks.
+9. **Product-specific craft** — Judge the approved palette and layout by purpose, hierarchy and accessibility; a color or pattern is not an automatic failure.
 
 Deep layout rules: `references/layout-and-hierarchy.md`  
 State UI rules: `references/state-coverage.md`  
@@ -157,7 +121,7 @@ Anti-slop: `references/anti-slop-rules.md`
 
 ## 7. Required state coverage
 
-For every P0 interactive screen, specify UI for:
+For every P0 interactive screen, specify applicable UI states below. Use Not applicable with a reason where behavior does not exist; do not invent filters or roles to satisfy a checklist:
 
 | State | Must include |
 |-------|--------------|
@@ -199,7 +163,7 @@ Details: `references/state-coverage.md`
 - Prefer design-system components named in doc 04  
 - If the brief clearly maps to a known system (Material, Polaris, Radix/shadcn, etc.), say so honestly — or label a web approximation  
 - Standardize: buttons, inputs, tables, modals, toasts, empty states  
-- Icons: SVG / system set — **not emoji-as-icons**
+- Icons: prefer the approved system; evaluate meaning, accessible labels and consistency rather than rejecting a symbol solely because it is emoji.
 
 ## 9. Accessibility (non-negotiable checks)
 
@@ -211,39 +175,26 @@ Details: `references/state-coverage.md`
 - [ ] Errors announced with text, not color alone  
 - [ ] Motion respects reduced-motion  
 
-## 10. Anti-slop rules (summary)
+## 10. Integrity and visual judgment
 
-Full list: `references/anti-slop-rules.md`
+Use [anti-slop-rules.md](references/anti-slop-rules.md). Truthfulness, meaningful action/cost disclosure and usable access to critical controls cannot be waived by docs or personal taste. Label synthetic fixtures; do not silently add unapproved scope.
 
-**Ban unless doc 04 or personal-taste explicitly allows:**
-
-- Generic purple / pink AI gradients and mesh blobs  
-- Templated “three equal feature cards” as the default layout  
-- Invented nav / dashboard widgets unrelated to jobs  
-- Fake charts, fake testimonials, fake product UI made of empty divs  
-- Glassmorphism everywhere  
-- Emoji-as-icons  
-- Scroll-cue theater (“Scroll to explore”) on ordinary product screens  
-- Seven-step delight onboarding not in PRD  
-- Centered-everything as the only layout idea  
-- Inter/Roboto as both display and body with no pairing when brand needs character (app shells may stay system sans — say why)
-
-**Prefer:** neutral base + one brand accent, clear hierarchy, real states, tokens from docs.
+Gradients, purple palettes, cards, blur, symmetry, emoji and a single font are visual choices, not automatic failures. Evaluate their product purpose, brand fit, hierarchy, accessibility and actual use. Explain the specific problem before recommending a change.
 
 ## 11. Workflow
 
-1. [ ] Light intake (3–5 Qs) — or skip if docs + handoff already answer  
+1. [ ] Light intake (0–5 questions when needed) — or skip if docs + handoff already answer
 2. [ ] Load `personal-taste/` if present  
-3. [ ] Refuse gate — docs present?  
-4. [ ] One-line design read + set VARIANCE / MOTION / DENSITY  
+3. [ ] Context check — what supports the requested commitment?
+4. [ ] One-line design read; dials only if useful
 5. [ ] Read PRD jobs + doc 04 screen inventory  
 6. [ ] Confirm screen ID and primary action  
 7. [ ] Draft **structure notes** (sections top → bottom)  
 8. [ ] Specify each required state  
 9. [ ] Apply layout + a11y + anti-slop references  
-10. [ ] Annotate decisions (why this layout; cite dials + docs)  
-11. [ ] **10-gate pre-flight** (below) — every box honest Pass/Fail  
-12. [ ] Hand off to **ux-critique**, then tickets in doc 05  
+10. [ ] Annotate decisions (why this layout; cite product context and any useful dials)
+11. [ ] **10-gate pre-flight** (below) — statuses supported by evidence
+12. [ ] Hand the specification to **ux-critique**, then update relevant tickets. Actual results need artifact/implementation evidence before release readiness.
 
 ## 12. Output format
 
@@ -253,7 +204,8 @@ Docs used: 01, 04, … (list gaps if any)
 Personal taste loaded: yes/no
 Job supported: …
 Design read (one line): …
-Dials: VARIANCE=N · MOTION=N · DENSITY=N (why…)
+Dials, if useful: VARIANCE=N · MOTION=N · DENSITY=N (why…)
+Review stage / artifact version / requested next stage: …
 
 ### Structure (top → bottom)
 1. …
@@ -277,41 +229,40 @@ Dials: VARIANCE=N · MOTION=N · DENSITY=N (why…)
 - …
 
 ### Annotated decisions
-- Decision → rationale (cite doc + dial)
+- Decision → rationale (cite current context; dials only if useful)
 
 ### Open questions
 - …
 
 ### 10-gate pre-flight
-| # | Check | Pass/Fail | Note |
+| # | Check | Status | Note |
 |---|-------|-----------|------|
 | 1 | … | | |
 ```
 
-## 13. Pre-flight checklist (10 gates — hard gate, no box, no ship)
+## 13. Pre-flight checklist (10 checks)
 
-Every item must honestly **Pass** or **Fail** with one short note.  
-**Fail** means fix or lower scope before shipping UI notes / generate prompts.  
-Do not mark Pass on vibes — cite evidence from docs or your structure notes.
+Evaluate readiness for the named specification/generation step using the shared contract. Use Pass, Fail, Not verified or justified Not applicable, with evidence and next action. A fix plan does not resolve a failed check. These checks do not certify a generated or running result.
 
-| # | Gate | Pass criteria |
-|---|------|---------------|
-| 1 | **Screen locked** | Screen exists in doc 04 (not invented) |
-| 2 | **Design read + dials** | One-line read + VARIANCE / MOTION / DENSITY stated with why |
-| 3 | **Primary action** | Matches a PRD job; verb + object label |
-| 4 | **States covered** | Empty / loading / error / success / denied specified (filtered empty if lists) |
-| 5 | **Anti-slop** | No purple SaaS / mesh blob / emoji-icon / fake social proof unless docs or personal-taste allow |
-| 6 | **Nav honesty** | Nav matches doc 04 — no invented destinations |
-| 7 | **A11y baseline** | Contrast, focus, keyboard, not color-only, reduced-motion considered |
-| 8 | **Motion honesty** | Motion matches MOTION dial; if dial high, real motion notes exist |
-| 9 | **Dial fidelity** | Density and variance match dials (not accidental clutter or empty hero theater) |
-| 10 | **Assumptions + critique-ready** | ASSUMPTIONs labeled; output ready for **ux-critique** |
+| # | Gate | Criterion |
+| --- | --- | --- |
+| 1 | Screen context | Screen/job is approved or explicitly provisional; source is identified |
+| 2 | Design direction | Direction fits user, content and approved constraints; dials optional |
+| 3 | Action hierarchy | Actions support the user's task with meaningful labels |
+| 4 | States | Relevant states have UI, feedback and recovery; no invented filters/roles |
+| 5 | Integrity and craft | No fabricated proof or unapproved scope; visual judgments explain actual impact |
+| 6 | Navigation | Destinations follow current project decisions |
+| 7 | Accessibility specification | Relevant keyboard/focus, contrast, non-color cues and reduced-motion requirements are specified; implementation remains separately unverified |
+| 8 | Motion | Relevant motion has purpose and reduced-motion behavior; mark Not applicable when absent |
+| 9 | Content and density | Planned hierarchy works with realistic content; dials are not proof |
+| 10 | Review handoff | Artifact/version, assumptions, unresolved issues and next stage are explicit |
 
-**Ship rule:** All 10 must be **Pass**, or Fail items listed with a fix plan before generate.
+Use the shared readiness rule across all ten checks. Do not mark Ready from failed items merely listed with fix plans.
 
 ## 14. References
 
-- `../_shared/intake.md`
+- [Shared intake](../_shared/intake.md)
+- [Operating contract](../_shared/operating-contract.md)
 - `../../personal-taste/` (optional overlays)
 - `references/layout-and-hierarchy.md`
 - `references/state-coverage.md`
