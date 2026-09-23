@@ -1,11 +1,11 @@
 ---
 name: product-design
-description: "Use this when you need to decide what a product should do — shape flows, specify states, review interaction decisions, harden edge cases, or write an engineering handoff. Trigger phrases: design the flow, what states, confirm vs undo, edge cases, product spec, handoff to eng, decision gate. Start with light intake (3–5 questions, examples + you decide / let me decide). End with the 8-check decision gate (Pass/Fail). Refuse to invent product scope when docs/01–05 are missing; ask for gaps or point to docs/. Do not use for pixel polish alone or fake user research. Part of ShipRight: context before generate, product before pixels."
+description: "Use this when shaping product flows, specifying states, reviewing interaction decisions, hardening edge cases or preparing a build handoff. Preserve the owned outcome and approved product decisions. Not for visual polish alone. Part of ShipRight."
 ---
 
 # Product Design Skill — ShipRight
 
-**Status: DRAFT — not published.**  
+**Status: Public draft; these changes are unreleased.**
 **Pack version:** 0.2.1-draft  
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
@@ -18,7 +18,7 @@ description: "Use this when you need to decide what a product should do — shap
 - Shape flows, reachable states, and action consequences
 - Record decisions so AI and eng do not invent behavior
 - Hand off clear specs to **ui-ux-design** and engineering
-- Pass an **8-check decision gate** before claiming done
+- Evaluate the **8-check decision gate** for the named handoff stage
 
 ### IS NOT
 
@@ -28,37 +28,13 @@ description: "Use this when you need to decide what a product should do — shap
 - Legal or compliance certification
 - A huge questionnaire dump
 
-## INTAKE (do this first — keep it light)
+## INTAKE
 
-Do **not** open with a long form. Gather idea context in **only 3–5 questions**, then finalize.
+Apply [the shared operating contract](../_shared/operating-contract.md) for decision ownership, missing context, evidence statuses and readiness. Use [shared intake](../_shared/intake.md); do not repeat questions already answered.
 
-Shared pattern: `../_shared/intake.md`
+Restate the user job and select an existing mode. Ask only about missing flow, user, outcome or constraints that change this decision.
 
-**you decide / let me decide:** If the user picks this, choose from docs, label `ASSUMPTION`, state the choice in one line, continue.
-
-### Ask these (pick 3–5; skip any docs already answer)
-
-**1. What flow or decision are we shaping?**  
-Examples: “Invite teammate”, “Cancel subscription”, “First-run checklist”, “Permission denied recovery”.  
-Or: **you decide / let me decide** from the PRD’s top job.
-
-**2. Who is the primary user for this run?**  
-Examples: “New admin”, “End user on mobile”, “Guest before signup”, “Internal ops”.  
-Or: **you decide / let me decide** from `docs/01-prd.md`.
-
-**3. What is the success moment?**  
-Examples: “Invite sent and pending”, “User recovers from error without losing input”, “Teammate accepts and lands in app”.  
-Or: **you decide / let me decide**.
-
-**4. Any hard constraints?**  
-Examples: “No new roles”, “Must work with existing API only”, “Destructive actions need confirm”, “Mobile-first”.  
-Or: **you decide / let me decide** from docs 02–03.
-
-**5. (Optional) What is explicitly out of scope this run?**  
-Examples: “No billing”, “No redesign of nav”, “No new onboarding steps”.  
-Or: **you decide / let me decide** from PRD non-goals.
-
-After answers: restate the job in one sentence, mark any `ASSUMPTION`, then run the refuse gate and workflow below. Do not keep interviewing.
+**You decide** delegates only the named choice. **Let me decide** reserves it for the user. Blank answers stay unresolved; continue independent work.
 
 ## 2. When to use / When NOT
 
@@ -66,26 +42,17 @@ After answers: restate the job in one sentence, mark any `ASSUMPTION`, then run 
 
 **Do NOT use when** the task is only visual polish, only copy tone, or pure backend with no product surface. For post-generate review, prefer **ux-critique**. For layout craft against a locked spec, prefer **ui-ux-design**.
 
-## 3. Required inputs (refuse gate)
+## 3. Relevant inputs
 
-Before inventing any flow or feature, check for filled (or explicitly partial) docs:
+Read available project context for the requested decision. The five templates record product, architecture, access, frontend and tickets; equivalent existing documents or explicit user instructions can supply those facts.
 
-| Doc | Path | Minimum needed |
-|-----|------|----------------|
-| PRD | `docs/01-prd.md` | Problem, users, goals, non-goals, scope |
-| Technical Architecture | `docs/02-technical-architecture.md` | Systems map + constraints (or UNKNOWN) |
-| Security & Access | `docs/03-security-and-access.md` | Roles + key permissions |
-| Frontend Spec | `docs/04-frontend-spec.md` | Screen/nav inventory if UI is in scope |
-| Feature Tickets | `docs/05-feature-ticket-list.md` | May be empty at start; update after |
+- PRD: user, outcome, approved scope and non-goals.
+- Architecture: observed capabilities and constraints affecting this flow.
+- Access: actual actors, permissions and consequential effects.
+- Frontend: existing screen jobs/navigation when UI is involved.
+- Tickets: relevant acceptance criteria, or update after decisions settle.
 
-**If docs are missing or empty:**
-
-1. **Refuse** to invent product behavior  
-2. List the **gaps** (which sections)  
-3. Point the user to `docs/` templates  
-4. You may help **fill** templates using light intake answers — mark assumptions as `ASSUMPTION`
-
-Light intake fills small gaps. It does **not** replace an empty PRD for inventing a whole product.
+Missing files do not block clarification or provisional drafting. Help fill relevant gaps and label proposals/unknowns. Apply the shared contract: block only the affected commitment, not independent work. Do not turn missing roles, APIs or approvals into facts.
 
 ## 4. Modes (pick one per run)
 
@@ -100,8 +67,8 @@ Say which mode you are in at the start of the output.
 
 ## 5. Step checklist
 
-1. [ ] Light intake (3–5 Qs) complete or skipped because docs already answer  
-2. [ ] Confirm docs 01–05 status (refuse gate)  
+1. [ ] Light intake (0–5 questions when needed) complete or skipped because docs already answer
+2. [ ] Identify relevant context and unresolved dependencies
 3. [ ] Restate the **user job** in one sentence (from PRD + intake)  
 4. [ ] Pick mode  
 5. [ ] List in-scope / out-of-scope from PRD (do not expand)  
@@ -111,20 +78,20 @@ Say which mode you are in at the start of the output.
 9. [ ] Apply decision checklist (`references/decision-checklist.md`)  
 10. [ ] List open questions (do not silently answer them)  
 11. [ ] Handoff notes for ui-ux-design + eng  
-12. [ ] **8-check decision gate** (Pass/Fail — below)
+12. [ ] **8-check decision gate** with evidence and next actions (below)
 
 ## 6. Required outputs
 
-Every completed run must include:
+For a flow/state handoff, include the relevant outputs below. For a narrow decision or correction, report only affected behavior and checks; preserve unrelated approvals:
 
 1. **Job** — who + verb + object  
 2. **Happy path** — numbered steps  
 3. **Fail / cancel path** — numbered steps  
-4. **State table** — at least: empty, loading, success, error, permission denied (add partial / filtered-empty when relevant)  
+4. **State table** — applicable empty, loading, success, error and permission-denied states; partial / filtered-empty only when the flow supports them
 5. **Key decisions** — with short rationale tied to docs  
 6. **Open questions** — unresolved items  
 7. **Handoff** — what ui-ux-design and eng need next  
-8. **Decision gate** — all 8 checks marked Pass or Fail
+8. **Decision gate** — relevant checks marked Pass, Fail, Not verified or Not applicable with evidence
 
 ### State table template
 
@@ -169,27 +136,27 @@ Full checklist: `references/decision-checklist.md`
 
 - Suggest updates to `docs/05-feature-ticket-list.md` after decisions settle
 
-## 9. Decision gate (8 checks — hard gate, not vibes)
+## 9. Decision gate (8 checks)
 
-Every item must honestly **Pass** or **Fail** with one short note.  
-**Rule:** Any **Fail** on checks 1–6 blocks handoff to ui-ux-design / generate. Checks 7–8 may Fail only if listed as open questions with owners.
+Use the shared contract's four statuses and one readiness rule. Identify the artifact/version, handoff stage and critical requirements first. Each row needs evidence and next action. A logged risk or named owner cannot turn failure into a pass, including checks 7–8.
 
-| # | Check | Pass / Fail | Note |
-|---|-------|-------------|------|
-| 1 | Docs refuse gate handled (docs present or gaps listed; no invented scope) | | |
-| 2 | Job restated in one sentence from PRD + intake | | |
-| 3 | Happy path written and stays inside PRD scope | | |
-| 4 | Fail / cancel path written | | |
-| 5 | State table includes at least empty, loading, success, error, permission denied | | |
-| 6 | Empty ≠ filtered empty called out when lists/filters exist | | |
-| 7 | Destructive / high-risk actions have confirm or undo decision recorded | | |
-| 8 | Open questions + ASSUMPTIONs explicit (none silently invented) | | |
+| # | Check | Status | Evidence / next action |
+| --- | --- | --- | --- |
+| 1 | Relevant context supports the affected commitment; unknown dependencies and provisional choices are explicit | | |
+| 2 | User job and intended outcome are clear | | |
+| 3 | Happy path follows approved or explicitly provisional scope | | |
+| 4 | Failure/cancel behavior states preserved input, persistent effects and recovery | | |
+| 5 | Required states have defined behavior; unsupported states are Not applicable with a reason | | |
+| 6 | Empty differs from filtered empty when filtering exists; no filters invented for this check | | |
+| 7 | Consequential actions have actor, effect and supported confirm/recovery decisions | | |
+| 8 | Open questions and assumptions have decision status, source and disposition | | |
 
-**Done only if:** checks 1–6 are Pass, and 7–8 are Pass **or** Fail with named open questions.
+**Readiness:** Re-decide, Fix first, Not established, or Ready for the named next stage, as defined by the shared contract. Never claim handoff readiness from gaps listed or risks assigned alone.
 
 ## 10. References
 
-- `../_shared/intake.md`
+- [Shared intake](../_shared/intake.md)
+- [Operating contract](../_shared/operating-contract.md)
 - `references/states-and-flows.md`
 - `references/decision-checklist.md`
 - Pack docs: `../../docs/`
