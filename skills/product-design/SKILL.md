@@ -6,7 +6,7 @@ description: "Use this when turning a rough idea or feature list into a product 
 # Product Design Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.3.0-draft  
+**Pack version:** 0.4.0-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -91,6 +91,7 @@ Then ask the questions (5 or fewer) that change items 1–2, and stop. Flows, st
 5. [ ] List in-scope / out-of-scope from PRD (do not expand)  
 6. [ ] Draft happy path (numbered)  
 7. [ ] Draft fail / cancel path  
+7a. [ ] For operational or related-record flows, map alternate entry, prerequisites and return visits using [operational-flows.md](references/operational-flows.md); recommend within scope and ask only unresolved policy questions
 8. [ ] Build state table (see `references/states-and-flows.md`)  
 9. [ ] Apply decision checklist (`references/decision-checklist.md`)  
 10. [ ] List open questions (do not silently answer them)  
@@ -168,7 +169,7 @@ Use the shared contract's four statuses and one readiness rule. Identify the art
 | 2 | User job and intended outcome are clear | | |
 | 3 | Happy path follows approved or explicitly provisional scope | | |
 | 4 | Failure/cancel behavior states preserved input, persistent effects and recovery | | |
-| 5 | Required states have defined behavior; unsupported states are Not applicable with a reason | | |
+| 5 | Required states, relevant entry variants and pending-work recovery have defined behavior; unsupported states are Not applicable with a reason | | |
 | 6 | Empty differs from filtered empty when filtering exists; no filters invented for this check | | |
 | 7 | Consequential actions have actor, effect and supported confirm/recovery decisions | | |
 | 8 | Open questions and assumptions have decision status, source and disposition | | |
@@ -179,6 +180,7 @@ Use the shared contract's four statuses and one readiness rule. Identify the art
 
 - [Shared intake](../_shared/intake.md)
 - [Operating contract](../_shared/operating-contract.md)
+- [Operational flows](references/operational-flows.md) (staff tasks, related objects, prerequisites or pending work)
 - `references/states-and-flows.md`
 - `references/decision-checklist.md`
 - `references/opportunity-research.md` (optional; New product depth only)
@@ -186,4 +188,4 @@ Use the shared contract's four statuses and one readiness rule. Identify the art
 
 ---
 
-*Public draft — skills/product-design/SKILL.md — ShipRight 0.3.0-draft*
+*Public draft — skills/product-design/SKILL.md — ShipRight 0.4.0-draft*

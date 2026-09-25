@@ -1,0 +1,5 @@
+PASS: 16 messages JSONL records and matching manifest; all 27 feedback IDs mapped.
+PASS: 7 static source files byte-identical to historical prototype; no v2 implementation implied.
+PASS: 29 local case-study Markdown targets exist.
+PASS: portable local and case-study v2 briefs match exactly.
+PASS: current pack and template version fields use 0.4.0-draft.

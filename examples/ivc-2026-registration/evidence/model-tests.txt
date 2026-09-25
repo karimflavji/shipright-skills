@@ -1,0 +1,17 @@
+✔ Central calendar cutoff and all age boundaries (0.899667ms)
+✔ single adult, duplicate recovery and post-event closure (2.613792ms)
+✔ family has one guardian per child, three fees and three identities (0.328208ms)
+✔ incomplete waivers never become complete tickets (0.221208ms)
+✔ covered approval is mandatory, debit is fee, no public disclosure (41.719791ms)
+✔ $100 on a $20 fee donates $80; no underpayment or NaN (0.357667ms)
+✔ eligibility, shirt, age and phone cannot be bypassed (0.104291ms)
+✔ late payment retains original fee and current cash date, once only (0.584708ms)
+✔ money by JK sums to regional ledger (0.20775ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.962

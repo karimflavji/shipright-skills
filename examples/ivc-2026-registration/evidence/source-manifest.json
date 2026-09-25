@@ -1,0 +1,12 @@
+{
+  "artifact": "IVC prototype v1",
+  "shiprightCommit": "fd33e90d4311b7446afbdad2d26de937c5245f5c",
+  "files": {
+    "prototype/index.html": "b2ee3b3dcf95b3b1911a01039782b23014328c2100a2dc457a7e5d9620034377",
+    "prototype/app.js": "63a7ac219600a5a6272c968c46dfc1eb4e36646dc4dd0dc0adc606920aa7e44d",
+    "prototype/model.mjs": "a2c07bd8389ac154ce34ae7f8eb49d89976ec7a50cb2d679f5a312c760945d3b",
+    "prototype/styles.css": "d35858539542babbd883fec484482bd81094e7cb1b8f034250ca8f89ff7a93be",
+    "prototype/assets/ivc-logo-background.svg": "3f8adfce3886e953245894729bd6f9aa048f3057130fb99928d9676ede28ce80",
+    "prototype/assets/qrcode.js": "18ae399f81182bc9de916e9c77b195df20cc58d6f2d55a62b085a299f1bf1780"
+  }
+}

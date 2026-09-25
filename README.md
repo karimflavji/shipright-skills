@@ -1,6 +1,6 @@
 # ShipRight
 
-**Status: Public draft — v0.3.0-draft.** See [CHANGELOG.md](./CHANGELOG.md).
+**Status: Public draft — v0.4.0-draft.** See [CHANGELOG.md](./CHANGELOG.md).
 
 **Tagline:** Context before generate. Product before pixels.
 
@@ -78,6 +78,10 @@ Taste packs make it look right. ShipRight makes it be right, then tells your too
 | Map | `architecture.md` | How the pack is organized |
 | Maintainer rules | `AGENTS.md` | Rules for editing this pack (not for your app) |
 | Examples | `examples/` | Idea-to-screen-jobs walkthrough; fictional invite specification with honest reviews |
+
+## In practice
+
+[IVC 2026 registration prototype](examples/ivc-2026-registration/README.md) is a real project brief carried through the full workflow: product frame, flows and states, screen handoff, implementation, and bounded review. The example includes the original runnable fake-data source, screenshots and test evidence, followed by owner feedback, a revised brief and targeted skill improvements. The original demo does not yet implement the revised requirements. It does not claim production readiness or independent validation.
 
 ## Quality checks
 
@@ -167,7 +171,7 @@ Follow the shared operating contract for decision authority and readiness.
 
 ## Version
 
-- Current: **v0.3.0-draft**
+- Current: **v0.4.0-draft**
 - See [CHANGELOG.md](./CHANGELOG.md)
 
 ---

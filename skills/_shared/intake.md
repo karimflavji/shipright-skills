@@ -32,6 +32,8 @@ Use short examples when helpful. Offer delegation and user choice as separate op
 
 An assumption label does not grant authority to decide. Apply [operating-contract.md](operating-contract.md) for authority, missing context, evidence and readiness.
 
+Before asking the user to enumerate edge cases, examine the stated job for material alternate starting conditions, missing prerequisites and return visits. Offer a concrete recommendation within scope. Keep policy choices with their owner; do not replace product thinking with a questionnaire. Existing explicit requirements may already establish the frame.
+
 ## Question bank
 
 Select only unanswered questions relevant to this task; this is not a form to complete.

@@ -60,9 +60,9 @@ for path in sorted((ROOT / "skills").rglob("*.md")):
 # Change set 2: inline core rules, optional references, verdict vocabulary,
 # and no stale publication status outside history files.
 optional_refs = {
-    "product-design": ["opportunity-research.md"],
-    "ui-ux-design": ["references-and-design-system.md", "build-handoff.md"],
-    "ux-critique": ["bounded-verification.md"],
+    "product-design": ["opportunity-research.md", "operational-flows.md"],
+    "ui-ux-design": ["references-and-design-system.md", "build-handoff.md", "operator-workspaces.md"],
+    "ux-critique": ["bounded-verification.md", "requirements-and-feedback.md"],
 }
 for name, refs in optional_refs.items():
     source = (ROOT / "skills" / name / "SKILL.md").read_text()
@@ -93,5 +93,5 @@ if errors:
     sys.exit(1)
 print(f"PASS: 3 skill metadata records; stable 8/10/10 check IDs; "
       f"{len(references)} local references; shared intake/contract links; "
-      f"inline core rules; 4 optional references linked; no stale status wording.")
+      f"inline core rules; 7 optional references linked; no stale status wording.")
 print("Canonical source check only; client installs and behavior need separate evidence.")

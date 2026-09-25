@@ -7,6 +7,28 @@ Format based on Keep a Changelog. Versioning follows SemVer.
 **Status:** Public draft. Historical notes below describe their time.
 **Product name:** **ShipRight** (locked).
 
+## [0.4.0-draft] — 2026-09-25 — operational flows and field feedback
+
+### Added
+
+- Optional references for alternate lookup/entry, related-person setup, prerequisite resolution, direct pending-work recovery and explicit cash allocation.
+- Operator-workspace guidance for useful summaries, contextual help, object-level progress and audit detail.
+- Feedback-to-requirement-to-regression workflow; distinguish implementation conformance from completeness of the specification.
+- IVC 2026 field example with its original runnable fake-data prototype and evidence, revised brief, owner feedback, reusable lessons and tool-neutral training candidates.
+- Focused behavior trials and source validation under `evals/change-set-3/`.
+
+### Changed
+
+- Shared intake asks agents to reason about material edge cases before sending policy questions to the owner; existing requirements can already establish the frame.
+- Existing 8/10/10 gates now explicitly cover applicable entry/return variants and evidence limits. No new skill, gate count, backend or paid dependency.
+- PRD and frontend templates can record entry conditions, preserved work, per-person progress and visible/reference content.
+- Historical IVC passes are labeled as evidence for the original specification, not validation of the owner's revised requirements. The live prototype is unchanged by this documentation/skill update.
+
+### Validation limits
+
+- Source/frontmatter checks and recorded behavior trials are evidence for this draft only; see the evaluation results for exact scope.
+- Training candidates are authored examples, not a training run. Compatibility with the owner's intended Soup repository is not established until that repository is identified.
+
 ## [0.3.0-draft] — 2026-09-23 — idea to build handoff
 
 ### Added

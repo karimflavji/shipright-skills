@@ -6,7 +6,7 @@ description: "Use this when designing or refining a screen, interaction, layout 
 # UI/UX Design Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.3.0-draft  
+**Pack version:** 0.4.0-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -115,6 +115,8 @@ The three **1–10** dials are optional communication aids. Use them only when t
 7. **Accessible by default** — Keyboard, focus, contrast, not color-only.  
 8. **Respect product type** — Banking ≠ neon startup template; follow industry seriousness implied by PRD.  
 9. **Product-specific craft** — Judge the approved palette and layout by purpose, hierarchy and accessibility; a color or pattern is not an automatic failure.
+
+For staff tasks or related-record workflows, use [operator-workspaces.md](references/operator-workspaces.md) to make dependencies, per-person progress, review summaries and useful help concrete.
 
 Deep layout rules: `references/layout-and-hierarchy.md`  
 State UI rules: `references/state-coverage.md`  
@@ -255,7 +257,7 @@ Evaluate readiness for the named specification/generation step using the shared 
 | 3 | Action hierarchy | Actions support the user's task with meaningful labels |
 | 4 | States | Relevant states have UI, feedback and recovery; no invented filters/roles |
 | 5 | Integrity and craft | No fabricated proof or unapproved scope; visual judgments explain actual impact |
-| 6 | Navigation | Destinations follow current project decisions |
+| 6 | Navigation | Destinations, exits and applicable step/object revisits follow current decisions and preserve valid work |
 | 7 | Accessibility specification | Relevant keyboard/focus, contrast, non-color cues and reduced-motion requirements are specified; implementation remains separately unverified |
 | 8 | Motion | Relevant motion has purpose and reduced-motion behavior; mark Not applicable when absent |
 | 9 | Content and density | Realistic content ranges are specified and the planned hierarchy handles them; rendered density stays Not verified until a visual artifact exists; dials are not proof |
@@ -268,6 +270,7 @@ Use the shared readiness rule across all ten checks: Re-decide, Fix first, Needs
 - [Shared intake](../_shared/intake.md)
 - [Operating contract](../_shared/operating-contract.md)
 - `../../personal-taste/` (optional overlays)
+- [Operator workspaces](references/operator-workspaces.md) (staff and related-record tasks)
 - `references/layout-and-hierarchy.md`
 - `references/state-coverage.md`
 - `references/anti-slop-rules.md`
@@ -277,4 +280,4 @@ Use the shared readiness rule across all ten checks: Re-decide, Fix first, Needs
 
 ---
 
-*Public draft — skills/ui-ux-design/SKILL.md — ShipRight 0.3.0-draft*
+*Public draft — skills/ui-ux-design/SKILL.md — ShipRight 0.4.0-draft*
