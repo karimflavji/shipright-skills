@@ -6,7 +6,7 @@ description: "Use this when designing or refining a screen, interaction, layout 
 # UI/UX Design Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.4.0-draft
+**Pack version:** 0.4.1-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -42,7 +42,7 @@ Design screens and UI structure that match **approved product context**, cover r
 
 Apply [the shared operating contract](../_shared/operating-contract.md) for decision ownership, missing context, evidence statuses and readiness. Use [shared intake](../_shared/intake.md); do not repeat questions already answered.
 
-State the depth, then identify the screen, its job and existing design constraints. Ask about direction only if unresolved; do not reopen approved choices for a small correction. Personal taste can guide visual defaults, but cannot override current project decisions, truthfulness or accessibility.
+State the depth, then identify the screen, its job and existing design constraints. Ask about direction only if unresolved; do not reopen approved choices for a small correction. Use only a personal profile selected by the user or project instructions; follow [profile selection](../../personal-taste/README.md). A bundled profile is not automatically active. A selected profile can guide visual defaults, but cannot override current project decisions, truthfulness or accessibility.
 
 **You decide** delegates only the named choice. **Let me decide** reserves it for the user. Blank answers stay unresolved; continue independent work.
 
@@ -187,7 +187,7 @@ Gradients, purple palettes, cards, blur, symmetry, emoji and a single font are v
 ## 11. Workflow
 
 1. [ ] Light intake (0–5 questions when needed) — or skip if docs + handoff already answer; depth stated
-2. [ ] Load `personal-taste/` if present  
+2. [ ] Load the selected personal-taste profile when available; without selection, keep project/pack defaults
 3. [ ] Context check — what supports the requested commitment?
 4. [ ] One-line design read; dials only if useful
 5. [ ] Read PRD jobs + doc 04 screen inventory  
@@ -269,7 +269,7 @@ Use the shared readiness rule across all ten checks: Re-decide, Fix first, Needs
 
 - [Shared intake](../_shared/intake.md)
 - [Operating contract](../_shared/operating-contract.md)
-- `../../personal-taste/` (optional overlays)
+- [Personal-taste profile selection](../../personal-taste/README.md) (optional; apply only the selected profile)
 - [Operator workspaces](references/operator-workspaces.md) (staff and related-record tasks)
 - `references/layout-and-hierarchy.md`
 - `references/state-coverage.md`
@@ -280,4 +280,4 @@ Use the shared readiness rule across all ten checks: Re-decide, Fix first, Needs
 
 ---
 
-*Public draft — skills/ui-ux-design/SKILL.md — ShipRight 0.4.0-draft*
+*Public draft — skills/ui-ux-design/SKILL.md — ShipRight 0.4.1-draft*

@@ -1,6 +1,6 @@
 # 04 — Frontend Specification Document
 
-**Status: Template (ShipRight v0.4.0-draft).**
+**Status: Template (ShipRight v0.4.1-draft).**
 **Pack:** ShipRight  
 **How to use:** Record approved screens, navigation, components, states and design direction before generating UI. The **ui-ux-design** skill follows approved entries here and compiles them into a build handoff pack. Skills may help draft a provisional screen specification. Do not treat proposed screens as approved; unresolved consequential decisions block the affected commitment.
 

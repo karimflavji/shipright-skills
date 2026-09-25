@@ -1,6 +1,6 @@
 # Architecture — ShipRight
 
-**Status: Public draft (v0.4.0-draft).**
+**Status: Public draft (v0.4.1-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 This file is a map of the pack. It is not a tutorial and not application code architecture.
@@ -64,7 +64,7 @@ pack/
 1. **Metadata** — skill `name` + `description` in each `SKILL.md` frontmatter (choose the right skill)
 2. **Context and authority** — current request, relevant project sources and `skills/_shared/operating-contract.md`; then shared intake (state the depth)
 3. **Instructions** — full `SKILL.md` body when the skill activates
-4. **Personal taste** — if `personal-taste/` has files, load for ui-ux defaults
+4. **Personal taste** — load only a user- or project-selected profile using [the selection guidance](personal-taste/README.md); bundled files are not automatically active
 5. **References** — files under `skills/*/references/` only when the depth or task calls for them
 6. **Docs** — relevant context for the commitment; help draft missing sections without inventing approvals
 7. **Gates** — run the skill's numbered gate at handoff or when readiness is requested

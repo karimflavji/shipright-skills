@@ -6,7 +6,7 @@ description: "Use this when turning a rough idea or feature list into a product 
 # Product Design Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.4.0-draft
+**Pack version:** 0.4.1-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -188,4 +188,4 @@ Use the shared contract's four statuses and one readiness rule. Identify the art
 
 ---
 
-*Public draft — skills/product-design/SKILL.md — ShipRight 0.4.0-draft*
+*Public draft — skills/product-design/SKILL.md — ShipRight 0.4.1-draft*
