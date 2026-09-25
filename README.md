@@ -1,6 +1,6 @@
 # ShipRight
 
-**Status: Public draft — v0.4.0-draft.** See [CHANGELOG.md](./CHANGELOG.md).
+**Status: Public draft — v0.4.1-draft.** See [CHANGELOG.md](./CHANGELOG.md).
 
 **Tagline:** Context before generate. Product before pixels.
 
@@ -142,6 +142,12 @@ Do **not** copy `AGENTS.md` into your app: it contains rules for maintaining thi
 
 Exact paths can vary by tool version.
 
+## Optional personal design preferences
+
+The pack includes [Altaz's personal-taste profile](personal-taste/altaz.md). To use it, say: “Use ShipRight with Altaz's personal-taste profile.” You can also record that choice in your existing project instructions for future sessions. It covers simple organized screens, restrained branding, discoverable help, useful summaries, progress and 8-point layout spacing when no approved system already exists.
+
+The profile stays optional for other users. Keep the file accessible when using a skills-only installation; see [selection and installation guidance](personal-taste/README.md). No IVC eligibility or registration policy is inherited.
+
 ## Example prompts
 
 **1 — Start from a rough idea (product-design)**
@@ -171,7 +177,7 @@ Follow the shared operating contract for decision authority and readiness.
 
 ## Version
 
-- Current: **v0.4.0-draft**
+- Current: **v0.4.1-draft**
 - See [CHANGELOG.md](./CHANGELOG.md)
 
 ---

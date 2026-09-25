@@ -7,6 +7,23 @@ Format based on Keep a Changelog. Versioning follows SemVer.
 **Status:** Public draft. Historical notes below describe their time.
 **Product name:** **ShipRight** (locked).
 
+## [0.4.1-draft] — 2026-09-25 — optional personal design profile
+
+### Added
+
+- `personal-taste/altaz.md` captures the owner's reusable preferences: simple organized screens, restrained branding, little repetition, discoverable help, useful summaries, clear progress/exits, consistency and an 8-point layout default.
+- Selection and installation guidance explains how to reuse the profile across projects and sessions.
+
+### Changed
+
+- UI/UX profile loading is explicitly selected by the user or project instructions. Bundled profiles do not automatically impose the owner's taste on every user.
+- Current instructions and approved project systems take precedence, including a different spacing scale. IVC-specific business rules remain outside the profile.
+- Catalog, pack map and current-version metadata updated; three skills and 8/10/10 checks retained.
+
+### Validation
+
+- Pack source and skill-frontmatter checks; review of profile selection, existing-system precedence and linked files. No new model trial or application change is claimed for this focused documentation update.
+
 ## [0.4.0-draft] — 2026-09-25 — operational flows and field feedback
 
 ### Added

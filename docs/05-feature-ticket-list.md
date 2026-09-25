@@ -1,6 +1,6 @@
 # 05 — Feature Ticket List
 
-**Status: Template (ShipRight v0.4.0-draft).**
+**Status: Template (ShipRight v0.4.1-draft).**
 **Pack:** ShipRight  
 **How to use:** Turn decisions from docs + skills into prioritized tickets with acceptance criteria. Update this **after** product-design, ui-ux-design, and ux-critique — then start coding.
 

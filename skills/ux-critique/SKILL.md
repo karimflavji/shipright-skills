@@ -6,7 +6,7 @@ description: "Use this when reviewing a product specification, screen, prototype
 # UX Critique Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.4.0-draft
+**Pack version:** 0.4.1-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -201,4 +201,4 @@ Use the shared contract's four statuses and readiness rule. Define critical requ
 
 ---
 
-*Public draft — skills/ux-critique/SKILL.md — ShipRight 0.4.0-draft*
+*Public draft — skills/ux-critique/SKILL.md — ShipRight 0.4.1-draft*

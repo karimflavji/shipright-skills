@@ -1,6 +1,6 @@
 # Skills catalog — ShipRight
 
-**Status: Public draft (v0.4.0-draft).**
+**Status: Public draft (v0.4.1-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 ## How to choose a skill
@@ -19,6 +19,8 @@ Read `skills/_shared/intake.md` and `skills/_shared/operating-contract.md`.
 Ask only material unanswered questions; zero is valid. “You decide” delegates within scope. “Let me decide” reserves the choice. Blank answers are unresolved.
 
 Statuses: Pass, Fail, Not verified, justified Not applicable, with artifact/version, stage and evidence. A ticket or owner does not resolve a failure. A stage-critical failure is a Blocker. Verdicts: Re-decide, Fix first, Needs decision (D#), Not established, Ready for [stage]. Lead with the verdict and next action; show gate tables only at handoff or when readiness is requested.
+
+Optional design preferences: [select a personal-taste profile](personal-taste/README.md). [Altaz's profile](personal-taste/altaz.md) is available on request; its presence does not change other users' defaults or override an approved design system.
 
 ## Catalog
 
@@ -78,9 +80,9 @@ Do not invent facts or approved scope. Missing documents allow provisional help;
 
 | Skill | Pack version |
 |-------|----------------|
-| product-design | 0.4.0-draft |
-| ui-ux-design | 0.4.0-draft |
-| ux-critique | 0.4.0-draft |
+| product-design | 0.4.1-draft |
+| ui-ux-design | 0.4.1-draft |
+| ux-critique | 0.4.1-draft |
 
 ---
 

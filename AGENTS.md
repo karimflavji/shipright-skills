@@ -1,7 +1,7 @@
 # AGENTS.md — Rules for AI working in this pack
 
 **Pack:** **ShipRight** (name locked)  
-**Status: Public draft (v0.4.0-draft).**
+**Status: Public draft (v0.4.1-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 These rules apply when an agent edits this skill-pack repo. The reusable product is the content under `skills/` and `docs/`. Do not copy this file into an end-user's app; the skills carry their own usage rules.
