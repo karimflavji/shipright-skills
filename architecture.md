@@ -1,6 +1,6 @@
 # Architecture — ShipRight
 
-**Status: Public draft (v0.3.0-draft).**
+**Status: Public draft (v0.4.0-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 This file is a map of the pack. It is not a tutorial and not application code architecture.
@@ -35,14 +35,15 @@ pack/
 │   │   ├── intake.md             # Depth + 0–5 questions + decision ownership
 │   │   └── operating-contract.md # Decision status, evidence, readiness, output shape
 │   ├── product-design/       # Frame product; what the product should DO (+ 8-check gate)
-│   │   └── references/       # states-and-flows, decision-checklist, opportunity-research
+│   │   └── references/       # states-and-flows, decision-checklist, operational-flows, opportunity-research
 │   ├── ui-ux-design/         # How screens LOOK and behave; build handoff (+ 10-check pre-flight)
-│   │   └── references/       # layout, state-coverage, anti-slop, references-and-design-system, build-handoff
+│   │   └── references/       # layout, state-coverage, operator-workspaces, anti-slop, references-and-design-system, build-handoff
 │   └── ux-critique/          # Review, product audit, verification (+ 10-check audit)
-│       └── references/       # slop-tells, severity-rubric, bounded-verification
+│       └── references/       # slop-tells, severity-rubric, bounded-verification, requirements-and-feedback
 ├── evals/                    # Focused behavior trials + source checks
 └── examples/
     ├── idea-to-screen-jobs/  # Rough idea → frame → screen jobs → build pack → review
+    ├── ivc-2026-registration/ # Historical prototype, owner feedback, revised brief and training candidates
     └── sample-saas-onboarding/
 ```
 

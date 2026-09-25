@@ -1,0 +1,12 @@
+Pack source checker
+PASS: 3 skill metadata records; stable 8/10/10 check IDs; 28 local references; shared intake/contract links; inline core rules; 7 optional references linked; no stale status wording.
+Canonical source check only; client installs and behavior need separate evidence.
+
+Skill frontmatter validator: skills/product-design
+Skill is valid!
+
+Skill frontmatter validator: skills/ui-ux-design
+Skill is valid!
+
+Skill frontmatter validator: skills/ux-critique
+Skill is valid!

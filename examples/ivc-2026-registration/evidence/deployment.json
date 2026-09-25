@@ -1,0 +1,8 @@
+{
+  "status": "succeeded",
+  "url": "https://ivc-2026-registration-demo.altazlavji.chatgpt.site",
+  "audience": "public",
+  "sourceCommit": "81ae13f625f910be256ffbe9ad8cf5b8cd9be016",
+  "version": 1,
+  "verification": "Native Sites deployment status confirmed success. Browser flow tests were performed on the matching local source; no deployed-browser end-to-end test claimed."
+}

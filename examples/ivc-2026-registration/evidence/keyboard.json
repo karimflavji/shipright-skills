@@ -1,0 +1,6 @@
+{
+  "status": "Pass",
+  "keyboard": "Adult registration from sign-in through ticket using Tab, typing, Space and Enter; no pointer",
+  "reflow": "720px event page has no horizontal overflow",
+  "limits": "Not a full WCAG or screen-reader audit"
+}

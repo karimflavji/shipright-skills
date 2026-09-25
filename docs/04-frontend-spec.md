@@ -1,6 +1,6 @@
 # 04 — Frontend Specification Document
 
-**Status: Template (ShipRight v0.3.0-draft).**  
+**Status: Template (ShipRight v0.4.0-draft).**
 **Pack:** ShipRight  
 **How to use:** Record approved screens, navigation, components, states and design direction before generating UI. The **ui-ux-design** skill follows approved entries here and compiles them into a build handoff pack. Skills may help draft a provisional screen specification. Do not treat proposed screens as approved; unresolved consequential decisions block the affected commitment.
 
@@ -62,6 +62,9 @@ List only real destinations. Do not let AI invent extra nav items.
   - [ ] Permission denied  
   - [ ] Partial data  
   - [ ] Filtered empty (vs true empty)
+- **Current object/person and remaining work (if multi-step):** <!-- -->
+- **Review/edit summary and pending-state actions:** <!-- -->
+- **Always visible vs accessible help:** <!-- -->
 - **Notes / constraints:** <!-- write here -->
 
 ## 4. Component inventory (feature-level)

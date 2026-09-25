@@ -1,0 +1,139 @@
+{
+  "version": "1",
+  "date": "2026-09-25",
+  "pack": "ShipRight 0.4.0-draft",
+  "format": "tool-neutral messages JSONL; no Soup adapter verified",
+  "source": "Owner IVC prototype feedback, September 25, 2026; authored paraphrases and fictional scenarios",
+  "review_status": "needs_human_review",
+  "training_executed": false,
+  "examples": [
+    {
+      "id": "IVC-L01",
+      "line": 1,
+      "feedback_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F16"
+      ]
+    },
+    {
+      "id": "IVC-L02",
+      "line": 2,
+      "feedback_ids": [
+        "F05"
+      ]
+    },
+    {
+      "id": "IVC-L03",
+      "line": 3,
+      "feedback_ids": [
+        "F06",
+        "F17"
+      ]
+    },
+    {
+      "id": "IVC-L04",
+      "line": 4,
+      "feedback_ids": [
+        "F07",
+        "F08",
+        "F09"
+      ]
+    },
+    {
+      "id": "IVC-L05",
+      "line": 5,
+      "feedback_ids": [
+        "F10"
+      ]
+    },
+    {
+      "id": "IVC-L06",
+      "line": 6,
+      "feedback_ids": [
+        "F11",
+        "F15"
+      ]
+    },
+    {
+      "id": "IVC-L07",
+      "line": 7,
+      "feedback_ids": [
+        "F12",
+        "F13",
+        "F14"
+      ]
+    },
+    {
+      "id": "IVC-L08",
+      "line": 8,
+      "feedback_ids": [
+        "F14",
+        "F17"
+      ]
+    },
+    {
+      "id": "IVC-L09",
+      "line": 9,
+      "feedback_ids": [
+        "F18"
+      ]
+    },
+    {
+      "id": "IVC-L10",
+      "line": 10,
+      "feedback_ids": [
+        "F19"
+      ]
+    },
+    {
+      "id": "IVC-L11",
+      "line": 11,
+      "feedback_ids": [
+        "F20"
+      ]
+    },
+    {
+      "id": "IVC-L12",
+      "line": 12,
+      "feedback_ids": [
+        "F21",
+        "F22"
+      ]
+    },
+    {
+      "id": "IVC-L13",
+      "line": 13,
+      "feedback_ids": [
+        "F23",
+        "F24",
+        "F25"
+      ]
+    },
+    {
+      "id": "IVC-L14",
+      "line": 14,
+      "feedback_ids": [
+        "F19",
+        "F26"
+      ]
+    },
+    {
+      "id": "IVC-L15",
+      "line": 15,
+      "feedback_ids": [
+        "F16",
+        "F27"
+      ]
+    },
+    {
+      "id": "IVC-L16",
+      "line": 16,
+      "feedback_ids": [
+        "F27"
+      ]
+    }
+  ]
+}

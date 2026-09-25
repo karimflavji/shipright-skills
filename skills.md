@@ -1,6 +1,6 @@
 # Skills catalog — ShipRight
 
-**Status: Public draft (v0.3.0-draft).**
+**Status: Public draft (v0.4.0-draft).**
 **Tagline:** Context before generate. Product before pixels.
 
 ## How to choose a skill
@@ -32,6 +32,9 @@ Statuses: Pass, Fail, Not verified, justified Not applicable, with artifact/vers
 
 | Reference | Skill | When |
 | --- | --- | --- |
+| `operational-flows.md` | product-design | Staff tasks, related objects, prerequisites, pending work and cash allocation |
+| `operator-workspaces.md` | ui-ux-design | Useful operator hierarchy, contextual help and per-person progress |
+| `requirements-and-feedback.md` | ux-critique | Requirement completeness and feedback-to-skill learning |
 | `opportunity-research.md` | product-design | New product depth, only if the user agrees |
 | `references-and-design-system.md` | ui-ux-design | New surface / New product, or recording an existing product's system (Preserve) |
 | `build-handoff.md` | ui-ux-design | Approved specs going to Claude Design, Figma, Cursor, Claude Code, Codex, Antigravity or VS Code agents |
@@ -75,9 +78,9 @@ Do not invent facts or approved scope. Missing documents allow provisional help;
 
 | Skill | Pack version |
 |-------|----------------|
-| product-design | 0.3.0-draft |
-| ui-ux-design | 0.3.0-draft |
-| ux-critique | 0.3.0-draft |
+| product-design | 0.4.0-draft |
+| ui-ux-design | 0.4.0-draft |
+| ux-critique | 0.4.0-draft |
 
 ---
 

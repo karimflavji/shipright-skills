@@ -1,0 +1,23 @@
+{
+  "harness": "Use the named ShipRight skill and required references. Read no examples/, evals/, CHANGELOG.md or other trial outputs. No network, installs, repository edits or external actions. Write the actual task response into an isolated /tmp artifact. The agent is not given a reviewer rubric or expected answer.",
+  "cases": [
+    {
+      "id": "S3-01",
+      "skill": "product-design",
+      "output": "output-product.md",
+      "task": "We have an approved staff-operated equipment hire desk. Customers can rent for themselves or arrange equipment for several separately identified people. We currently search by membership number. People sometimes don't have it; our approved record fields also include name and phone. Operators must verify required training before equipment can be released. A supervisor may confirm recent training and staff must record who confirmed it. A sponsor and user can each already exist. Fees are per equipment item; cash is accepted. Someone may return later just to pay a saved outstanding balance. Please shape a practical flow and call out consequential questions. Do not add online booking, marketing, or payment services. Our outcome and scope above are approved; do not ask for approval again."
+    },
+    {
+      "id": "S3-02",
+      "skill": "ui-ux-design",
+      "output": "output-ui.md",
+      "task": "Focused improvement of our staff equipment-hire form only. Approved: we use a 4px spacing system, a small approved logo, and a table with name, equipment, status and balance. Staff process several people in one case. Each person needs their own training check, equipment choice and payment state; the approved flow allows revisiting completed details. Our screen currently has the workshop hours in both sidebar and right panel, and the right panel repeats policy text. People cannot tell whose details they're editing. Make the screen simpler, keep important training blockers visible and make occasional instructions easy to find. Keep the existing system and scope; don't redesign the public website or add a new workflow. Give structure and behavior notes, not code."
+    },
+    {
+      "id": "S3-03",
+      "skill": "ux-critique",
+      "output": "output-critique.md",
+      "task": "Review this evidence packet for a revised equipment-hire handoff. Existing implementation v1 searches only by membership number and restarts the full wizard to collect an outstanding balance. An operator entering $100 for an $80 hire creates an automatic $20 club donation. Eight old tests all passed and the builder's screenshot review said it looked professional. Today's owner correction says customers must also be findable by approved name/phone fields, staff should resume only the unpaid step, and surplus cash is returned unless the payer says to donate it. The correction has been written into draft specification v2 but there is no new implementation or test run. Owner asks: Is this ready? Keep flow, visual design and scenario coverage separate. Record a useful reusable lesson for our skill without making equipment-hire-specific rules universal. Don't implement or publish anything."
+    }
+  ]
+}

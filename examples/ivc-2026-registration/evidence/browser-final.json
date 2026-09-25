@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-25T16:39:22.709Z",
+  "browser": "Installed Google Chrome via Playwright",
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ],
+  "run": "final",
+  "results": [
+    {
+      "name": "1. Approved access, adult, no COC, inactive and no-match recovery",
+      "status": "Pass"
+    },
+    {
+      "name": "2. Guardian plus two children, typed/drawn waivers and separate tickets",
+      "status": "Pass"
+    },
+    {
+      "name": "3. Teen waiting on parent, mobile signature and same-browser desk update",
+      "status": "Pass"
+    },
+    {
+      "name": "4. Price switch, donations, coverage, pending payment, reports and cash close",
+      "status": "Pass"
+    },
+    {
+      "name": "5. Public/mobile routes, keyboard, invalid links, persistence and reset",
+      "status": "Pass"
+    }
+  ],
+  "pageErrors": []
+}

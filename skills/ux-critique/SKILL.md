@@ -6,7 +6,7 @@ description: "Use this when reviewing a product specification, screen, prototype
 # UX Critique Skill — ShipRight
 
 **Status: Public draft.**
-**Pack version:** 0.3.0-draft  
+**Pack version:** 0.4.0-draft
 **Pack name:** **ShipRight** (locked)  
 **Tagline:** Context before generate. Product before pixels.
 
@@ -54,6 +54,8 @@ Name Specification, Visual artifact or Implementation in the review header, with
 | Artifact + relevant context | Evaluate against current decisions; identify unapproved deviations |
 | Artifact + incomplete context | Review supported properties; mark affected product conclusions unknown rather than inventing scope |
 | No artifact | Ask for the smallest relevant spec, screen or result; do not claim to have reviewed an imaginary attachment |
+
+For operational-flow reviews or stakeholder feedback, use [requirements-and-feedback.md](references/requirements-and-feedback.md). Check whether the specification covers the real task as well as whether the implementation matches it.
 
 Read the shared contract before scoring. Missing evidence is Not verified, not an automatic Fail or Pass.
 
@@ -169,7 +171,7 @@ Use the shared contract's four statuses and readiness rule. Define critical requ
 | 2 | Context honesty | Claims are supported by available context; missing facts and scope limits are explicit |
 | 3 | Job clarity | The artifact communicates its job; label heuristic judgment rather than claiming user testing |
 | 4 | Action hierarchy | Primary/contextual actions serve the user's task and current product decisions |
-| 5 | States | Required behavior is specified or verified at this stage; a missing required state remains Fail when ticketed |
+| 5 | States | Required behavior and relevant entry/return variants are traced to stage-appropriate evidence; selected tests do not prove omitted scenarios; missing required behavior remains Fail when ticketed |
 | 6 | Blockers | No unresolved Blocker in the reviewed scope; lack of evidence does not prove none exists |
 | 7 | Craft | Specific hierarchy/content/interaction defects are addressed; visual evidence unavailable means Not verified |
 | 8 | Trust | Cost, permissions, action effects and evidence are honest; taste cannot waive them |
@@ -192,10 +194,11 @@ Use the shared contract's four statuses and readiness rule. Define critical requ
 
 - [Shared intake](../_shared/intake.md)
 - [Operating contract](../_shared/operating-contract.md)
+- [Requirements and feedback](references/requirements-and-feedback.md) (operational flows or stakeholder corrections)
 - `references/slop-tells.md`
 - `references/severity-rubric.md`
 - `references/bounded-verification.md` (optional; implementation stage — screenshot and fix loop)
 
 ---
 
-*Public draft — skills/ux-critique/SKILL.md — ShipRight 0.3.0-draft*
+*Public draft — skills/ux-critique/SKILL.md — ShipRight 0.4.0-draft*
